@@ -1,0 +1,35 @@
+nav{
+    background-color: #E80C6F;
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav li{
+    display: inline-block;
+    font-size: 18px;
+    padding: 15px;
+}
+
+body{
+    background-color: #B900F5;
+}
+
+tituloStore {
+    margin:auto;
+    display:block;
+    vertical-align: center;
+  
+  }
+
+table, th, td {
+    border: 1px solid;
+    width: 100%;
+    text-align: center;
+  }
+
+  img{
+    display:block;
+    margin:auto;
+    }
