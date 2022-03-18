@@ -11,19 +11,20 @@ header{
     width: 100%;
     height: 10%;
     background-color: aquamarine;
+    margin-bottom: 10px;
 }
 
 #frame{
     width: 100%;
-    height: 86%;
-    background-color: cadetblue;
-    margin-top: 1%;
-    margin-bottom: 1%;
+    height: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 section{
     float: left;
     width: 20%;
+    height: auto;
 }
 
 .col1, .col3, .col5{
@@ -36,3 +37,19 @@ section{
     height: 100%;
 }
 
+div{
+    margin: 10px;
+    height: auto;
+}
+
+img{
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+video{
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
