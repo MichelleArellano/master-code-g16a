@@ -1,0 +1,38 @@
+html{
+    height: 100%;
+}
+
+body{
+    background-color: burlywood;
+    height: 100%;
+}
+
+header{
+    width: 100%;
+    height: 10%;
+    background-color: aquamarine;
+}
+
+#frame{
+    width: 100%;
+    height: 86%;
+    background-color: cadetblue;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+section{
+    float: left;
+    width: 20%;
+}
+
+.col1, .col3, .col5{
+    background-color: blueviolet;
+    height: 100%;
+}
+
+.col2, .col4{
+    background-color: black;
+    height: 100%;
+}
+
