@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+
+body{
+    background-color: brown;
+}
+header{
+    background-color: aqua;
+}
+.blanco{
+    font-family: 'Times New Roman';
+    font-size: 26px;
+}
+
+section{
+    border: purple 10px dashed;
+    background-color: #ffffff;
+    width: 100%;
+}
+
+section .colores{
+    border: red solid 8px;
+    border-top-color: red;
+    border-right-color: chartreuse;
+    border-bottom-color: yellow;
+}
+
+p{
+    font-family: 'Raleway', sans-serif;
+}
