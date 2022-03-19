@@ -3,22 +3,70 @@ html{
 }
 
 body{
-    background-color: burlywood;
     height: 100%;
+    background-color: rgb(175, 174, 252);
 }
 
 header{
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 10%;
-    background-color: aquamarine;
     margin-bottom: 10px;
 }
 
-#frame{
+#navbar-pinterest{
     width: 100%;
     height: 100%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    background-color: cadetblue;
+}
+
+#pinterest-icon{
+    width: 20px;
+}
+
+.logoButtons{
+    margin: 5px;
+    background-color: blue;
+    display: flex;
+    flex-direction: row; 
+    justify-content: flex-start;
+    width: auto;
+}
+
+.searcher{
+    margin: 5px;
+    background-color: brown;
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    width: auto;
+}
+
+.finder{
+    width: 100%;
+}
+
+.accountActions{
+    margin: 5px;
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end; 
+    width: auto;
+}
+
+#notifications, #messages, #profile-img, #expand{
+    color: #767676;
+}
+
+#search{
+    color: #767676;
+}
+
+#content{
+    margin-top: 6%;
 }
 
 section{
@@ -28,16 +76,14 @@ section{
 }
 
 .col1, .col3, .col5{
-    background-color: blueviolet;
-    height: 100%;
+    height: auto;
 }
 
 .col2, .col4{
-    background-color: black;
-    height: 100%;
+    height: auto;
 }
 
-div{
+.card-image{
     margin: 10px;
     height: auto;
 }

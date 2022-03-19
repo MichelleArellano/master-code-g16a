@@ -6,54 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pinterest</title>
     <link rel="icon" type="img/png" href="img/logo.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
     <link rel="stylesheet" href="css/estilos.css">
 </head>
-<body>
+<main id="content">
     <header>
-
+        <nav id="navbar-pinterest">
+            <section class="logoButtons">
+                <a href="https://www.pinterest.com.mx/">
+                    <img id="pinterest-icon" alt="Qries" src="img/logo.png">
+                 </a>
+                <button>Inicio</button>
+                <button>Hoy</button>
+            </section>
+            <section class="searcher">
+                <span id="search" class="material-icons-outlined">search</span>
+                <input class="finder" type="text" placeholder="Search..">
+            </section>
+            <section class="accountActions">
+                <span id="notifications" class="material-icons-outlined">notifications</span>
+                <span id="messages" class="material-icons-outlined">textsms</span>
+                <span id="profile-img" class="material-icons-outlined">account_circle</span>
+                <span id="expand" class="material-icons-outlined">expand_more</span>
+            </section>
+        </nav>
     </header>
+    <div>
         <section class="col1">
-            <div>
+            <div class="card-image">
                 <img src="img/gato.jpeg" alt="">
             </div>
-            <div>
+            <div class="card-image">
                 <img src="img/escaleras.png" alt="">
             </div>
         </section>
         <section class="col2">
-            <div>
+            <div class="card-image">
                 <img src="img/letras.jpeg" alt="">
             </div>
-            <div>
+            <div class="card-image">
                 <img src="img/aplicaciones.jpeg" alt="">
             </div>
         </section>
         <section class="col3">
-            <div>
+            <div class="card-image">
                 <img src="img/dibujo.jpeg" alt="">
             </div>
-            <div>
+            <div class="card-image">
                 <img src="img/anotadores.jpeg" alt="">
             </div>
         </section>
         <section class="col4">
-            <div>
-                <video width="320" height="240" autoplay muted>
+            <div class="card-image">
+                <video autoplay muted>
                     <source src="img/video.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                   </video>
             </div>
-            <div>
+            <div class="card-image">
                 <img src="img/hoseok.jpeg" alt="">
             </div>
         </section>
         <section class="col5">
-            <div>
+            <div class="card-image">
                 <img src="img/gatoLentes.jpeg" alt="">
             </div>
-            <div>
+            <div class="card-image">
                 <img src="img/lithop.jpeg" alt="">
             </div>
         </section>
+    </main>
 </body>
 </html>
