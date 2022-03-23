@@ -1,0 +1,19 @@
+body{
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+header, main, footer{
+    border: 1px #000000 solid;
+    display: inline-block;
+    height: 100px;
+    padding: 20px 10px 5px;
+    width: 100px;
+}
+h1, h2, h3{
+    /* display: inline; */
+    font-size: 3rem;
+}
+nav a{
+    display: block;
+}

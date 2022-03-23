@@ -1,0 +1,38 @@
+body{
+    height: 300px;
+    background-color: #bbdefb;
+    background-image: url("../img/gatos.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}
+.principal, header{
+    background-color: #9fa8da;
+    width: 100%;
+}
+#piePagina{
+    background-color: #f48fb1;
+    height: 100px;
+    margin: auto;
+    width: 20%;
+}
+.principal{
+    background-color: #a5d6a7;
+}
+.principal, #piePagina, header{
+    border: 1px #000000 solid;
+    margin: 10px 5px 15px 20px;
+    padding: 20px 5px 10px 15px;
+}
+h1, p{
+    margin: 50px;
+    padding: 10px;
+    text-align: center;
+}
+p{
+    text-align: justify;
+}
+#piePagina{
+    margin: auto;
+}
