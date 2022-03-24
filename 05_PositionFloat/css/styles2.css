@@ -1,0 +1,20 @@
+body {
+    flex: content;
+    margin: 0;
+    padding: 0;
+    font-size: 28px;
+    font-family: 'Nunito', sans-serif;
+}
+header{
+    align-items: flex-start;
+    background-color: #96CDFF;
+    height: 10vh;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+footer{
+    background-color: #96CDFF;
+    height: 10vh;
+    width: 100%;
+}
