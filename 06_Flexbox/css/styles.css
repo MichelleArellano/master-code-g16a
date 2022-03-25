@@ -1,0 +1,99 @@
+body{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    background-color: #5c6bc0;
+    justify-content: space-between;
+    height: 10vh;
+    width: 100%;
+}
+header div{
+    display: flex;
+    flex-direction: row;
+}
+header nav{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+header nav a, header nav i{
+    margin-right: 5px;
+}
+aside{
+    background-color: #9fa8da;
+    height: 80vh;
+    width: 15%;
+}
+aside nav{
+    display: flex;
+    flex-direction: column;
+}
+aside nav a{
+    border-bottom: 1px #000000 solid;
+    color: #000000;
+    font-size: 0.8rem;
+    padding: 5px 0;
+    text-align: center;
+    text-decoration: none;
+}
+aside nav a:hover{
+    background-color: #798;
+}
+main{
+    background-color: #e8eaf6;
+    display: flex;
+    height: 80vh;
+    flex-direction: row;
+    width: 100%;
+}
+section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 80vh;
+    /* overflow: scroll; */
+    width: 85%;
+}
+section article{
+    background-color: #ffffff;
+    margin: 5px;
+    padding: 5px;
+    height: 200px;
+}
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #5c6bc0;
+    height: 10vh;
+    width: 100%;
+}
+footer p{
+    margin: 0;
+}
+footer a{
+    color: #000000;
+    margin-left: 5px;
+}
+h1{
+    font-size: 1.5rem;
+    margin: 0;
+}
+.logo{
+    height: 100%;
+}
+.perfil{
+    border-radius: 50%;
+    height: 100%;
+}
+.galeria{
+    height: 100px;
+}
