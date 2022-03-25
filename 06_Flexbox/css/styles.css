@@ -55,12 +55,17 @@ main{
     width: 100%;
 }
 section{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr; 
+    gap: 10px 10px; 
+    grid-template-areas: 
+    ". . ."
+    ". . ."
+    ". . .";
     height: 80vh;
-    /* overflow: scroll; */
-    width: 85%;
+    overflow: scroll;
+    width: 85%;   
 }
 section article{
     background-color: #ffffff;
