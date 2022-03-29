@@ -1,0 +1,153 @@
+body{
+    margin: 0;
+    font-family: 'Trebuchet MS';
+}
+header{
+    background: linear-gradient(rgba(84,92,220,.8),rgba(96,171,245,.7)),url(../img/tienditaFondo.jpg);
+    height: 100vh;
+    background-size: cover;
+}
+header .contenedor{
+    display: flex;
+    justify-content: space-between;
+}
+header ul{
+    display: flex;
+}
+header ul li{
+    list-style: none;
+    margin-right: 15px;
+}a{
+    text-decoration: none;
+}
+.contenedor{
+    max-width: 1260px;
+    margin: auto;
+}
+#contenedor-titulo-flex{
+    display: flex;
+    justify-content: center;
+    margin: 18vh;
+    width: 100%;
+}
+h1{
+    font-size: 50px;
+    color: #ffff;
+    margin: 0;
+}
+.contenedor-titulo{
+    text-align: center;
+}
+p.logo{
+    color: #ffff;
+}
+nav ul li a{
+    color: #ffff;
+}
+/* Inicio */
+h2{
+    text-align: center;
+    font-size: 50px;
+}
+#inicio{
+    width: 45%;
+}
+#inicio .contenedor-inicio{
+    display: flex;
+    justify-content: space-around;
+}
+/* Productos */
+#productos{
+    background: #cdcdcd;
+}
+#productos .contenedor-productos{
+    display: flex;
+    justify-content: space-around;
+}
+#productos .muestra{
+    width: 30%;
+    box-shadow: 2px 2px 14px #ccc;
+}
+#productos img{
+    width: 100%;
+}
+#producto .contenido{
+    background: #ffff;
+    padding: 20px;
+}
+#productos h4{
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 15px;
+}
+#productos p{
+    color: cornflowerblue;
+    line-height: 24px;
+    font-size: 15px;
+}
+/* Footer*/
+footer{
+    background: #2f2f2f;
+    padding: 40px;
+    text-align: center;
+    margin-top: 40px;
+}
+footer .contenedor{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+footer p{
+    color: #ffff;
+    padding: 2opx;
+}
+html{
+    scroll-behavior: smooth;
+}
+#inicio, #productos{
+    padding: 5opx 0;
+}
+.menu-icon{
+    display: none;
+}
+/* Inicia @media*/
+@media (max-width:700px){
+    .menu-icon{
+        display: block;
+        float: right;
+        width: 40px;
+        height: 35px;
+        margin-top: 15px;
+    }
+    header nav{
+        position: absolute;
+        top: 83px;
+        left: 0;
+        height: 260px;
+        width: 100%;
+        background: #5cb8ff;
+        display: none;
+    }
+    header nav ul{
+        flex-direction: column;
+    }
+    header nav ul li{
+        margin-bottom: 15px;
+    }
+    h1{
+        font-size: 45px;
+    }
+    h2{
+        font-size: 20px;
+    }
+    #inicio .contenedor-inicio{
+        display: flex;
+        flex-direction: column;
+    }
+    #inicio img{
+        width: 100%;
+    }
+    h3{
+        font-size: 40px;
+    }
+}
