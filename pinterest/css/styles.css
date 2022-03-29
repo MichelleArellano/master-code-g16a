@@ -1,0 +1,117 @@
+/*
+LISTO ---->Tener <nav> </nav> con #navbar-pinterest
+LISTO ---->El buscador debe de ser <input> con .finder
+LISTO ---->La navbar debe de tener 3 iconos cada uno dentro de <div> </div> a la derecha #notifications #message y #profile-img
+LISTO ---->Tener un <main> </main> con #content este debe de contener todas las images
+LISTO ---->El icono de pinterest con #pinterest-icon me debe de redireccionar a https://www.pinterest.com
+LISTO ---->Cada imagen debe de estar encerrada en un <div> </div> con la clase .card-image
+LISTO ---->Por lo menos deben de existir 30 imágenes
+Debes de tener por lo menos una media query
+LISTO ---->El navbar siempre debe de estar en el top de la aplicación
+La .card-image tiene un :hover para mostrar los botones
+*/
+body{
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    background-color: #5c6bc0;
+    justify-content: space-between;
+    height: 10vh;
+    width: 100%;
+}
+header div{
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+}
+button{
+    margin: 20px 10px;
+}
+.logo{
+    height: 100%;
+    margin-right: 5px;
+}
+header section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px 10px;
+    width: 50%;
+}
+.finder{
+    width: 100%;
+}
+#navbar-pinterest{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+#notifications, #messages, #profile-img, #expand, #search{
+    margin: 0 5px;
+    font-size: 30px !important;
+}
+main{
+    background-color: #e8eaf6;
+    display: flex;
+    flex-direction: row;
+    height: 80vh;
+    width: 100%;
+}
+main section{
+    height: auto;
+    width: 100%;
+}
+#content{
+    background-color: #e8eaf6;
+    display: flex;
+    height: 90vh;
+    overflow: scroll;
+    width: 100%;
+}
+.card-image{
+    margin: 10px 10px 20px 10px;
+    height: auto;
+}
+.card-image figure{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+}
+#content img{
+    width: 100%;
+    border-radius: 20px;
+    transition: all 500ms ease-out;
+}
+.card-image figure .capa{
+    position: absolute;
+    border-radius: 20px;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(47, 47, 47, 0.3);
+    transition: all 500ms ease-out;
+    opacity: 0;
+    visibility: hidden;
+}
+.card-image figure:hover > .capa{
+    opacity: 1;
+    visibility: visible;
+}
+#content video{
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+.card-image h4, .card-image p{
+    margin: 0;
+    padding: 0;
+}

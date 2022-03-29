@@ -5,74 +5,174 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pinterest</title>
-    <link rel="icon" type="img/png" href="img/logo.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<main id="content">
+<body>
     <header>
+        <div>
+            <a href="https://www.pinterest.com.mx/">
+            <img src="img/logo.png" alt="logo" class="logo">
+            </a>
+            <button>Inicio</button>
+            <button>Hoy</button>
+        </div>
+        <section>
+            <span id="search" class="material-icons-outlined">search</span>
+            <input class="finder" type="text" placeholder="Search..">
+        </section>
         <nav id="navbar-pinterest">
-            <section class="logoButtons">
-                <a href="https://www.pinterest.com.mx/">
-                    <img id="pinterest-icon" alt="Qries" src="img/logo.png">
-                 </a>
-                <button>Inicio</button>
-                <button>Hoy</button>
-            </section>
-            <section class="searcher">
-                <span id="search" class="material-icons-outlined">search</span>
-                <input class="finder" type="text" placeholder="Search..">
-            </section>
-            <section class="accountActions">
+            <div>
                 <span id="notifications" class="material-icons-outlined">notifications</span>
                 <span id="messages" class="material-icons-outlined">textsms</span>
                 <span id="profile-img" class="material-icons-outlined">account_circle</span>
-                <span id="expand" class="material-icons-outlined">expand_more</span>
-            </section>
+                <span id="expand"class="material-icons-outlined">expand_more</span>
+            </div>
         </nav>
     </header>
-    <div>
+    <main id="content">
         <section class="col1">
             <div class="card-image">
-                <img src="img/gato.jpeg" alt="">
+                <figure>
+                    <img src="img/gato.jpeg" alt="gato">
+                    <div class="capa">
+                        <p>Fotos de...</p>
+                        <button>Guardar</button>
+                        <span class="material-icons-outlined">file_upload</span>
+                        <span class="material-icons-outlined">more_horiz</span>
+                    </div>
+                </figure>
+                <h4>Zona gatos</h4>
+                <p>Cómo regañar un gato correctamente</p>
             </div>
             <div class="card-image">
-                <img src="img/escaleras.png" alt="">
+                <img src="img/escaleras.png" alt="escaleras">
+                <h4>Wociety on Twitter</h4>
+            </div>
+            <div class="card-image">
+                <img src="img/aplicaciones.jpeg" alt="aplicaciones">
+                <h4>East Ping Crafts</h4>
+                <p>Creative handicraft</p>
+            </div>
+            <div class="card-image">
+                <img src="img/gift.jpeg" alt="gift">
+                <h4>Yana, la gatitta con rostro bicolor que revoluciona las redes</h4>
+            </div>
+            <div class="card-image">
+                <img src="img/benson.jpeg" alt="benson">
+                <h4>Conoce a Benson, el gatito que tiene más estilo que cualquiera...</h4>
+            </div>
+            <div class="card-image">
+                <img src="img/suculenta.jpeg" alt="suculenta">
+                <h4>Succulent propagation record</h4>
             </div>
         </section>
         <section class="col2">
             <div class="card-image">
-                <img src="img/letras.jpeg" alt="">
+                <img src="img/letras.jpeg" alt="letras">
+                <h4>Apostilas - Lettering Creative</h4>
             </div>
             <div class="card-image">
-                <img src="img/aplicaciones.jpeg" alt="">
+                <img src="img/lettering.jpeg" alt="lettering">
+                <h4>Lettering</h4>
+            </div>
+            <div class="card-image">
+                <img src="img/cumple.jpeg" alt="cumple">
+                <h4>¿Los años pasan diferente?</h4>
+            </div>
+            <div class="card-image">
+                <img src="img/fondos.jpeg" alt="fondos">
+                <h4>ZandraArt</h4>
+            </div>
+            <div class="card-image">
+                <img src="img/libros.jpeg" alt="libros">
+                <h4>Oursecret</h4>
+                <p>Póster de libros</p>
+            </div>
+            <div class="card-image">
+                <img src="img/libro.jpeg" alt="libro">
+                <h4>Cats rule the world</h4>
             </div>
         </section>
         <section class="col3">
             <div class="card-image">
-                <img src="img/dibujo.jpeg" alt="">
+                <img src="img/dibujo.jpeg" alt="dibujo">
+                <h4>Gatico tierno</h4>
             </div>
             <div class="card-image">
-                <img src="img/anotadores.jpeg" alt="">
+                <img src="img/anotadores.jpeg" alt="anotadores">
+                <h4>Nuevo! Cuadernos, anotadores y recetarios</h4>
+            </div>
+            <div class="card-image">
+                <img src="img/gatoDisfrazado.jpeg" alt="gatoDisfrazado">
+                <h4>Gatos Disfrazados: Los más tiernos y graciosos</h4>
+            </div>
+            <div class="card-image">
+                <img src="img/tiny.jpeg" alt="tiny">
+                <h4>Imagina BTS</h4>
+            </div>
+            <div class="card-image">
+                <img src="img/foto.jpeg" alt="foto">
+                <h4>Top Best DIY Ideas And Decoration Tips</h4>
+            </div>
+            <div class="card-image">
+                <img src="img/dormido.jpeg" alt="dormido">
+                <h4>Having sweet dreams</h4>
             </div>
         </section>
         <section class="col4">
             <div class="card-image">
                 <video autoplay muted>
                     <source src="img/video.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                  </video>
+                    Tu navegador no soporta el tipo de video
+                    </video>
+                    <h4>Lo tierno que veras hoy</h4>
             </div>
             <div class="card-image">
-                <img src="img/hoseok.jpeg" alt="">
+                <img src="img/hoseok.jpeg" alt="hoseok">
+                <h4>Hobi weverse</h4>
             </div>
+            <div class="card-image">
+                <img src="img/floral.jpeg" alt="floral">
+                <h4>PlantsFiles Pictures: Crassula Hybrid, Rosary Vine 'Baby...</h4>
+            </div>
+            <div class="card-image">
+                <img src="img/sucuroja.jpeg" alt="sucuroja">
+                <h4>Succulents Dont Talk Back</h4>
+            </div>
+            <div class="card-image">
+                <img src="img/letras.jpeg" alt="letras">
+                <h4>Alphabet with brush pen</h4>
+            </div>
+            <div class="card-image">
+                <img src="img/flores.jpeg" alt="flores">
+                <h4>Imágenes de Gatitos con Flores</h4>
         </section>
         <section class="col5">
             <div class="card-image">
-                <img src="img/gatoLentes.jpeg" alt="">
+                <img src="img/gatoLentes.jpeg" alt="gatoLentes">
+                <h4>Wallpaper Cute Gatinho</h4>
             </div>
             <div class="card-image">
-                <img src="img/lithop.jpeg" alt="">
+                <img src="img/lithop.jpeg" alt="lithop">
+                <h4>#plantsShelflove</h4>
+            </div>
+            <div class="card-image">
+                <img src="img/mini.jpeg" alt="mini">
+                <h4>Agust D</h4>
+            </div>
+            <div class="card-image">
+                <img src="img/playera.jpeg" alt="playera">
+                <h4>15 Curiosos datos sobre los gatos que las chicas aman a los...</h4>
+            </div>
+            <div class="card-image">
+                <img src="img/estilo.jpeg" alt="estilo">
+                <h4>Conoce a Benson, el gatito que tiene más estilo que cualquiera...</h4>
+            </div>
+            <div class="card-image">
+                <img src="img/casa.jpeg" alt="casa">
+                <h4>Elite Realty</h4>
+                <p>DIY swing</p>
             </div>
         </section>
     </main>
