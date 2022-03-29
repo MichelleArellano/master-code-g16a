@@ -16,11 +16,12 @@ body{
     font-size: 18px;
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
 }
 header{
     display: flex;
     flex-direction: row;
-    background-color: #5c6bc0;
+    /* background-color: #5c6bc0; */
     justify-content: space-between;
     height: 10vh;
     width: 100%;
@@ -28,24 +29,57 @@ header{
 header div{
     display: flex;
     flex-direction: row;
-    width: 20%;
 }
-button{
-    margin: 20px 10px;
+.button-inicio{
+    text-decoration: none;
+    font-weight: 550;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #000000;
+    border-radius: 25px;
+    margin: 10px 0 10px 10px;
+    padding: 10px;
+    border: 0;
+}
+.button-hoy{
+    text-decoration: none;
+    font-weight: 550;
+    font-size: 20px;
+    color: #000000;
+    background-color: #ffffff;
+    border-radius: 25px;
+    margin: 10px 10px 10px 0;
+    padding: 10px 10px 10px 10px;
+    transition: all 1s ease;
+    border: 0;
+}
+.button-hoy:hover{
+    background: rgb(47, 47, 47, 0.2);
 }
 .logo{
-    height: 100%;
-    margin-right: 5px;
+    margin: 15px;
+    height: 5vh
 }
 header section{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 20px 10px;
+    margin: 12px 10px;
     width: 50%;
 }
 .finder{
     width: 100%;
+    height:40px;
+    border-radius:25px;
+    border: none;
+    background: rgb(47, 47, 47, 0.1);
+}
+#search, #expand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px !important;
+    color: #767676;
 }
 #navbar-pinterest{
     align-items: center;
@@ -53,9 +87,9 @@ header section{
     flex-direction: row;
     height: 100%;
 }
-#notifications, #messages, #profile-img, #expand, #search{
-    margin: 0 5px;
-    font-size: 30px !important;
+#notifications, #messages, #profile-img, #expand{
+    margin: 5px;
+    height: 5vh;
 }
 main{
     background-color: #e8eaf6;
@@ -79,12 +113,17 @@ main section{
     margin: 10px 10px 20px 10px;
     height: auto;
 }
+.card-image h4, .card-image p{
+    margin: 0;
+    padding: 0;
+}
 .card-image figure{
     position: relative;
     margin: 0;
     padding: 0;
     overflow: hidden;
     cursor: pointer;
+    width: 100%;
 }
 #content img{
     width: 100%;
@@ -97,7 +136,7 @@ main section{
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgb(47, 47, 47, 0.3);
+    background: rgb(47, 47, 47, 0.6);
     transition: all 500ms ease-out;
     opacity: 0;
     visibility: hidden;
@@ -106,12 +145,23 @@ main section{
     opacity: 1;
     visibility: visible;
 }
+#image-top-menu{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 5px;
+    /* margin-bottom: 220px; */
+}
+#image-bottom-menu{
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-end;
+    order: 1;
+    padding: 20px;
+}
 #content video{
     width: 100%;
     height: auto;
     border-radius: 20px;
-}
-.card-image h4, .card-image p{
-    margin: 0;
-    padding: 0;
 }
