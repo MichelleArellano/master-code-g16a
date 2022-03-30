@@ -145,6 +145,20 @@ main section{
     opacity: 1;
     visibility: visible;
 }
+.card-image button{
+    text-decoration: none;
+    font-weight: 550;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #AE2924;
+    border-radius: 25px;
+    margin: 5px;
+    padding: 10px;
+    border: 0;
+}
+figure span, figure p{
+    color: #ffffff;
+}
 #image-top-menu{
     display: flex;
     align-items: center;
