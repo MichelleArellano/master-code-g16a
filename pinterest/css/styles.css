@@ -1,15 +1,3 @@
-/*
-LISTO ---->Tener <nav> </nav> con #navbar-pinterest
-LISTO ---->El buscador debe de ser <input> con .finder
-LISTO ---->La navbar debe de tener 3 iconos cada uno dentro de <div> </div> a la derecha #notifications #message y #profile-img
-LISTO ---->Tener un <main> </main> con #content este debe de contener todas las images
-LISTO ---->El icono de pinterest con #pinterest-icon me debe de redireccionar a https://www.pinterest.com
-LISTO ---->Cada imagen debe de estar encerrada en un <div> </div> con la clase .card-image
-LISTO ---->Por lo menos deben de existir 30 imágenes
-Debes de tener por lo menos una media query
-LISTO ---->El navbar siempre debe de estar en el top de la aplicación
-La .card-image tiene un :hover para mostrar los botones
-*/
 body{
     display: flex;
     flex-direction: column;
@@ -69,8 +57,8 @@ header section{
 }
 .finder{
     width: 100%;
-    height:41px;
-    border-radius:0 25px 25px 0;
+    height:auto;
+    border-radius: 25px;
     border: none;
     background: rgb(47, 47, 47, 0.1);
     padding: 1px 1px 1px 10px;
@@ -78,11 +66,6 @@ header section{
 }
 #div-finder{
     width: 100%;
-}
-#div-search{
-    background: rgb(47, 47, 47, 0.1);
-    padding-left: 10px;
-    border-radius: 25px 0 0 25px;
 }
 #search, #expand{
     display: flex;
