@@ -1,0 +1,13 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: darkseagreen;
+}
+
+.image-profile {
+    width: 250px;
+}
+
+.name{
+    width: 400px;
+}
