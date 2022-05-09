@@ -64,99 +64,134 @@
 // vocalConsonante('s');
 // vocalConsonante('u');
 
-//Ejercicio 3
-/* 
-scribe una funcion que simule el juego piedra, papel o tijera
-    simulando dos personas pidiendo nombre y despues de 3 rondas diga quien gana
-    felicitaciones y si quieren volver a jugar
-*/
-var jugadorUno = prompt(`Ingresa el nombre del primer jugador: `);
-var jugadorDos = prompt(`Ingresa el nombre del segundo jugador: `);
+// //Ejercicio 3
+// /* 
+// scribe una funcion que simule el juego piedra, papel o tijera
+//     simulando dos personas pidiendo nombre y despues de 3 rondas diga quien gana
+//     felicitaciones y si quieren volver a jugar
+// */
+// var jugadorUno = prompt(`Ingresa el nombre del primer jugador: `);
+// var jugadorDos = prompt(`Ingresa el nombre del segundo jugador: `);
 
-function piedraPapelTijera(){
+// function piedraPapelTijera(){
     
 
-    //El primer elemento es el jugador 1 y el segundo el jugador 2
-    var turnoJugadores = [];
+//     //El primer elemento es el jugador 1 y el segundo el jugador 2
+//     var turnoJugadores = [];
     
-    var turnoJugadores = setTurno(turnoJugadores);
+//     var turnoJugadores = setTurno(turnoJugadores);
 
-    juego(turnoJugadores);
-}
+//     juego(turnoJugadores);
+// }
 
-function setTurno(turnoJugadores){
+// function setTurno(turnoJugadores){
 
-    if(turnoJugadores === `Null` || turnoJugadores.length === 0){
-        var turno = Math.floor(Math.random() * 2);
+//     if(turnoJugadores === `Null` || turnoJugadores.length === 0){
+//         var turno = Math.floor(Math.random() * 2);
 
-        if(turno === 1){
-            alert(`El turno es aleatorio, ${jugadorUno} inicia`);
-            turnoJugadores[0] = 1;
-            turnoJugadores[1] = 0;
-        }else{
-            alert(`El turno es aleatorio, ${jugadorDos} inicia`);
-            turnoJugadores[0] = 0;
-            turnoJugadores[1] = 1;
-        }
+//         if(turno === 1){
+//             alert(`El turno es aleatorio, ${jugadorUno} inicia`);
+//             turnoJugadores[0] = 1;
+//             turnoJugadores[1] = 0;
+//         }else{
+//             alert(`El turno es aleatorio, ${jugadorDos} inicia`);
+//             turnoJugadores[0] = 0;
+//             turnoJugadores[1] = 1;
+//         }
 
-    }else if(turnoJugadores[0] === 1 && turnoJugadores[1] === 0){
-        turnoJugadores[0] = 0;
-        turnoJugadores[1] = 1;
-    }else if(turnoJugadores[0] === 0 && turnoJugadores[1] === 1){
-        turnoJugadores[0] = 1;
-        turnoJugadores[1] = 0;
-    } 
+//     }else if(turnoJugadores[0] === 1 && turnoJugadores[1] === 0){
+//         turnoJugadores[0] = 0;
+//         turnoJugadores[1] = 1;
+//     }else if(turnoJugadores[0] === 0 && turnoJugadores[1] === 1){
+//         turnoJugadores[0] = 1;
+//         turnoJugadores[1] = 0;
+//     } 
 
-    return turnoJugadores;
-}
+//     return turnoJugadores;
+// }
 
-function juego(turnoJugadores){
-    var rondasParaJugador1 = [];
-    var rondasParaJugador2 = [];
-    var rondasTerminadas = 0;
+// function juego(turnoJugadores){
+//     var rondasParaJugador1 = [];
+//     var rondasParaJugador2 = [];
+//     var rondasTerminadas = 0;
 
-    for(var i = 0; i < 3; i++){
-        alert(`Ronda ${i+1}`);
+//     for(var i = 0; i < 3; i++){
+//         alert(`Ronda ${i+1}`);
 
-        do{
-            if(rondasParaJugador1.length === 3 && rondasParaJugador2.length === 3){
-                rondasTerminadas = 0;
-            }else if(turnoJugadores[0] === 1 && turnoJugadores[1] === 0){
-                    alert(`${jugadorUno}, prepárate`);
-                    rondasParaJugador1 = rondas(jugadorUno, rondasParaJugador1);
-                    setTurno(turnoJugadores);
-                }else if(turnoJugadores[0] === 0 && turnoJugadores[1] === 1){
-                    alert(`${jugadorDos}, prepárate`);
-                    rondasParaJugador2 = rondas(jugadorDos, rondasParaJugador2);
-                    setTurno(turnoJugadores)
-                }
-        }while(rondasParaJugador1.length === 3 && rondasParaJugador2.length === 3);
+//         do{
+//             if(rondasParaJugador1.length === 3 && rondasParaJugador2.length === 3){
+//                 rondasTerminadas = 0;
+//             }else if(turnoJugadores[0] === 1 && turnoJugadores[1] === 0){
+//                     alert(`${jugadorUno}, prepárate`);
+//                     rondasParaJugador1 = rondas(jugadorUno, rondasParaJugador1);
+//                     setTurno(turnoJugadores);
+//                 }else if(turnoJugadores[0] === 0 && turnoJugadores[1] === 1){
+//                     alert(`${jugadorDos}, prepárate`);
+//                     rondasParaJugador2 = rondas(jugadorDos, rondasParaJugador2);
+//                     setTurno(turnoJugadores)
+//                 }
+//         }while(rondasParaJugador1.length === 3 && rondasParaJugador2.length === 3);
 
-        ganador(jugadorUno, jugadorDos, rondasParaJugador1, rondasParaJugador2);
-    }
+//         ganador(jugadorUno, jugadorDos, rondasParaJugador1, rondasParaJugador2);
+//     }
 
-    console.log(rondasParaJugador1);
-    console.log(rondasParaJugador2);
-}
+//     console.log(rondasParaJugador1);
+//     console.log(rondasParaJugador2);
+// }
 
-function rondas(jugador, rondasParaJugar){
+// function rondas(jugador, rondasParaJugar){
     
-    var opcion = prompt(`${jugador}, ingresa piedra, papel o tijera:`);
+//     var opcion = prompt(`${jugador}, ingresa piedra, papel o tijera:`);
 
-    //Piedra es 1, papel es 2 y tijera es 3
-    if(opcion.toLowerCase() === `piedra`){
-        rondasParaJugar.push(1);
-    }else if(opcion.toLowerCase() === `papel`){
-        rondasParaJugar.push(2);
-    }else if(opcion.toLowerCase() === `tijera`){
-        rondasParaJugar.push(3);
-    }
+//     //Piedra es 1, papel es 2 y tijera es 3
+//     if(opcion.toLowerCase() === `piedra`){
+//         rondasParaJugar.push(1);
+//     }else if(opcion.toLowerCase() === `papel`){
+//         rondasParaJugar.push(2);
+//     }else if(opcion.toLowerCase() === `tijera`){
+//         rondasParaJugar.push(3);
+//     }
 
-    return rondasParaJugar;
-}
+//     return rondasParaJugar;
+// }
 
-function ganador(jugadorUno, jugadorDos, rondasParaJugador1, rondasParaJugador2){
+// function ganador(jugadorUno, jugadorDos, rondasParaJugador1, rondasParaJugador2){
 
-}
+// }
 
-piedraPapelTijera();
+// piedraPapelTijera();
+
+// //---------------------------------------------------------
+// //Ejercicio 4
+// var texto = prompt(`Ingresa una palabra`);
+
+// function palindromo(texto){
+//     var textoSinEspacios = [];
+//     var indice = 0;
+
+//     for (var i = 0; i < texto.length; i++){
+//         if(texto[i] == ' '){
+
+//         }else{
+//             textoSinEspacios[indice] = texto [i];
+//             indice++;
+//         }
+//     }
+
+// //Lectura de texto derecha a izquierda
+//     var indiceAlreves = (textoSinEspacios - 1);
+//     var msg = ``;
+    
+//     for(var i = 0; i < textoSinEspacios.length; i++){
+//         if(textoSinEspacios[i] != textoSinEspacios[indiceAlreves]){
+//             msg = `La oracion no es un palindromo`;
+//         }else{
+//             indiceAlreves--;
+//             msg = `La oracion es un palindromo`;
+//         }
+//     }
+
+//     return msg;
+// }
+
+// alert(palindromo(texto));
