@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS + Html</title>
+
+    <script defer src="js/app.js"></script>
+</head>
+<body>
+    <section>
+        <label for="nombre">Nombres:</label>
+        <input id="nombre" type="text">
+        <label for="apellido">Apellidos:</label>
+        <input id="apellido" type="text">
+        <br>
+        <label for="direccion">Dirección:</label>
+        <input id="direccion" type="text">
+        <label for="celular">Celular:</label>
+        <input id="celular" type="number">
+        <br>
+        <label for="edad">Edad:</label>
+        <select id="edad">
+            <option value="18">18 años</option>
+            <option value="19">19 años</option>
+            <option value="20">20 años</option>
+            <option value="21">21 años</option>
+            <option value="22">22 años</option>
+            <option value="23">23 años</option>
+            <option value="24">24 años</option>
+            <option value="25">25 años</option>
+            <option value="26">26 años</option>
+            <option value="27">27 años</option>
+            <option value="28">28 años</option>
+            <option value="29">29 años</option>
+            <option value="30">30 años</option>
+            <option value="31">31 años</option>
+            <option value="32">32 años</option>
+            <option value="33">33 años</option>
+            <option value="34">34 años</option>
+            <option value="35">35 años</option>
+        </select>
+        <label for="fecnac">Fecha Nacimiento:</label>
+        <input id="fecnac" type="date">
+        
+        <br>
+        <input id="m" type="radio" name="genero" onclick="ValidarGenero(1)" checked>Masculino
+        <input id="f" type="radio" name="genero" onclick="ValidarGenero(2)">Femenino
+        <input id="o" type="radio" name="genero" onclick="ValidarGenero(3)">Otro
+        <input id="otro" type="text" style="display: none;">
+        <br>
+        <label for="acepto">Acepto terminos y condiciones</label>
+        <input type="checkbox" name="acepto" id="acepto">
+        <br>
+        <br>
+        <button onclick="Registrar()">Registrar</button>
+    </section>
+    <section>
+        <table id="registro">
+            <tr>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Edad</th>
+                <th>Fecha Nacimiento</th>
+                <th>Dirección</th>
+                <th>Celular</th>
+                <th>Género</th>
+                <th>Acepto</th>
+            </tr>
+        </table>
+    </section>
+</body>
+</html>
