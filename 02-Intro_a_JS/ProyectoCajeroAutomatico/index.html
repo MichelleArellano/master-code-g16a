@@ -101,7 +101,7 @@
               bulk of the card's content.
             </p>
             <a
-              href="#"
+              id="btn-mali"
               class="btn btn-primary"
               data-bs-toggle="modal"
               data-bs-target="#modalLogin"
@@ -117,7 +117,13 @@
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </p>
-            <a href="#" class="btn btn-primary">Ingresar</a>
+            <a
+              id="btn-gera"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#modalLogin"
+              >Ingresar</a
+            >
           </div>
         </div>
         <div class="card" style="width: 18rem">
@@ -128,7 +134,13 @@
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </p>
-            <a href="#" class="btn btn-primary">Ingresar</a>
+            <a
+              id="btn-maui"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#modalLogin"
+              >Ingresar</a
+            >
           </div>
         </div>
       </section>
@@ -152,8 +164,7 @@
             </div>
             <div class="modal-body">
               <!-- Inicio de sesión -->
-
-              <form>
+              <form id="form">
                 <div class="text-center mb-sm-3">
                   <img
                     class="mt-4 mb-4"
@@ -167,7 +178,9 @@
                   <div class="col-sm-12">
                     <label for="user" class="form-label">Usuario</label>
                     <div class="input-group has-validation">
-                      <span class="input-group-text mb-sm-3" id="inputGroupPrepend"
+                      <span
+                        class="input-group-text mb-sm-3"
+                        id="inputGroupPrepend"
                         >@</span
                       >
                       <input
@@ -190,15 +203,28 @@
                         id="password"
                         required
                       />
+                      <div class="invalid-feedback">
+                        Ingresa una contraseña válida.
+                      </div>
                       <div id="passwordHelp" class="form-text mb-sm-3">
-                        Your password must be 8-20 characters long, contain
-                        letters and numbers, and must not contain spaces,
-                        special characters, or emoji.
+                        Recuerda mantener tus credenciales en un lugar seguro.
                       </div>
                     </div>
                   </div>
-                  <div class="col-12 d-flex justify-content-center mt-sm-3 mb-sm-3">
-                    <button class="btn btn-primary" type="submit">Ingresar</button>
+                  <div class="col-sm-12 mb-sm-3">
+                    <div class="form-check">
+                      <input id="accountCheck" class="form-check-input" type="checkbox" onclick="validatePassword()" required>
+                      <label class="form-check-label" for="accountCheck">
+                        Validar cuenta en existencia.
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="col-12 d-flex justify-content-center mt-sm-3 mb-sm-3"
+                  >
+                    <button disabled id="btn-login" class="btn btn-primary" type="submit" onclick="validatePassword()">
+                      Ingresar
+                    </button>
                   </div>
                 </div>
               </form>
