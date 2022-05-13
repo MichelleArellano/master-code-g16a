@@ -1,0 +1,22 @@
+header img{
+    height: 42px;
+}
+
+main {
+    background-color: #9fc4fb;
+    height: 80vh;
+} 
+
+main section{
+    height: 100%;
+    padding: 30px 30px;
+}
+
+main section div img{
+    width: 50%;
+} 
+
+footer {
+    height: 10vh;
+    background-color: #093b66;
+} 
