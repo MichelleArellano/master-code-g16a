@@ -104,7 +104,7 @@
               id="btn-mali"
               class="btn btn-primary"
               data-bs-toggle="modal"
-              data-bs-target="#modalLogin"
+              data-bs-target="#exampleModalToggle2"
               >Ingresar</a
             >
           </div>
@@ -159,6 +159,7 @@
                 class="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
+                onclick="reload()"
               ></button>
             </div>
             <div class="modal-body">
@@ -202,6 +203,7 @@
                         id="password"
                         oninput="validateAccount()"
                         autocomplete="on"
+                        onreset="reload()"
                         required
                       />
                       <div class="invalid-feedback">
@@ -237,6 +239,7 @@
                       data-bs-target="#exampleModalToggle2"
                       data-bs-toggle="modal"
                       data-bs-dismiss="modal"
+                      onclick="reload()"
                     >
                       Ingresar
                     </button>
@@ -247,6 +250,7 @@
           </div>
         </div>
       </div>
+      <!-- Modal para hacer transacciones -->
       <div
         class="modal fade"
         id="exampleModalToggle2"
@@ -256,7 +260,12 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalToggleLabel2">Modal 2</h5>
+              
+                <a class="navbar-brand" href="#">
+                  <img src="img/logo.png" alt="logo" height="40" />
+                  ScotiaMeow
+                </a>
+
               <button
                 type="button"
                 class="btn-close"
@@ -265,15 +274,110 @@
               ></button>
             </div>
             <div class="modal-body">
-              Hide this modal and show the first with the button below.
-            </div>
+
+              <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Consulta de saldo</button>
+                  <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Depósitos</button>
+                  <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Retiros</button>
+                </div>
+              </nav>
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                  
+                    <div class="d-sm-flex">
+                      <div class="col-sm-6">
+                        <div class="text-center mb-sm-3">
+                          <img
+                            class="mt-4 mb-4"
+                            src="img/woman1.svg"
+                            alt="logoLogin"
+                            height="150"
+                          />
+                          <h1 class="h3 mb-3 font-weight-normal">Nombre</h1>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="text-center mb-sm-3">
+                          <h1 class="h3 mb-3 font-weight-normal">Estado de cuenta</h1>
+                          <span>Tu saldo total es: </span>
+                          <div class="input-group mb-3">
+                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" disabled>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                  <div class="col-sm-6">
+                    <div class="text-center mb-sm-3">
+                      <h1 class="h3 mb-3 font-weight-normal">Ingresa el monto:</h1>
+
+                      <div class="input-group mb-3">
+                        <span class="input-group-text">$</span>
+                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                      </div>
+                      
+                      <span>Tu saldo total es: </span>
+                          <div class="input-group mb-3">
+                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" disabled>
+                          </div>
+
+                          <button
+                      id="btn-cancel"
+                      type="button"
+                      class="btn btn-danger"
+                    >
+                      Ingresar
+                    </button>
+
+                    <button
+                      id="btn-ok"
+                      type="button"
+                      class="btn btn-primary"
+                    >
+                      Depositar
+                    </button>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">$</span>
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                  </div>
+                  
+                  <span>Tu saldo total es: </span>
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" disabled>
+                      </div>
+
+                      <button
+                  id="btn-cancel"
+                  type="button"
+                  class="btn btn-danger"
+                >
+                  Ingresar
+                </button>
+
+                <button
+                  id="btn-ok"
+                  type="button"
+                  class="btn btn-primary"
+                >
+                  Retirar
+                </button>
+
+                </div>
+              </div>
             <div class="modal-footer">
               <button
                 class="btn btn-primary"
-                data-bs-target="#exampleModalToggle"
-                data-bs-toggle="modal"
               >
-                Back to first
+                Cerrar
               </button>
             </div>
           </div>

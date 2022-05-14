@@ -34,7 +34,6 @@ document.getElementById('btn-maui').onclick = function(){
     accountSelected = 'Maui';
 }
 
-//Revisar lo de las opciones de login sin pass y checke
 //Validar cuenta y contraseña
 function validateAccount(){
     let passwordAccount = document.getElementById('password').value;
@@ -87,4 +86,8 @@ function validatePassword(pass){
         openLogin = 0;
         return true;
     }
+}
+
+function reload(){
+    document.getElementById('password').value = "";
 }
