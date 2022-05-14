@@ -12,11 +12,11 @@ main section{
     padding: 30px 30px;
 }
 
-main section div img{
-    width: 50%;
-} 
-
 footer {
     height: 10vh;
     background-color: #093b66;
 } 
+
+.card{
+    width: 18rem;
+}

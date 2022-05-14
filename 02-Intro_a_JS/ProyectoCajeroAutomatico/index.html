@@ -92,7 +92,7 @@
     <main class="container-fluid">
       <!-- Cuentas-->
       <section class="d-flex justify-content-around">
-        <div class="card" style="width: 18rem">
+        <div class="card">
           <img src="img/woman1.svg" class="card-img-top" alt="woman1" />
           <div class="card-body">
             <h5 id="Mali" class="card-title"></h5>
@@ -109,7 +109,7 @@
             >
           </div>
         </div>
-        <div class="card" style="width: 18rem">
+        <div class="card">
           <img src="img/woman2.svg" class="card-img-top" alt="woman2" />
           <div class="card-body">
             <h5 id="Gera" class="card-title"></h5>
@@ -126,7 +126,7 @@
             >
           </div>
         </div>
-        <div class="card" style="width: 18rem">
+        <div class="card">
           <img src="img/man.svg" class="card-img-top" alt="man" />
           <div class="card-body">
             <h5 id="Maui" class="card-title"></h5>
@@ -148,7 +148,6 @@
       <div
         class="modal fade"
         id="modalLogin"
-        aria-hidden="true"
         aria-labelledby="exampleModalToggleLabel"
         tabindex="-1"
       >
@@ -201,6 +200,8 @@
                         class="form-control"
                         aria-describedby="passwordHelp"
                         id="password"
+                        oninput="validateAccount()"
+                        autocomplete="on"
                         required
                       />
                       <div class="invalid-feedback">
@@ -213,16 +214,30 @@
                   </div>
                   <div class="col-sm-12 mb-sm-3">
                     <div class="form-check">
-                      <input id="accountCheck" class="form-check-input" type="checkbox" onclick="validatePassword()" required>
+                      <input
+                        id="accountCheck"
+                        class="form-check-input"
+                        type="checkbox"
+                        onclick="validateAccount()"
+                        disabled
+                        required
+                      />
                       <label class="form-check-label" for="accountCheck">
-                        Validar cuenta en existencia.
+                        Validar datos de cuenta.
                       </label>
                     </div>
                   </div>
                   <div
                     class="col-12 d-flex justify-content-center mt-sm-3 mb-sm-3"
                   >
-                    <button disabled id="btn-login" class="btn btn-primary" type="submit" onclick="validatePassword()">
+                    <button
+                      id="btn-login"
+                      type="button"
+                      class="btn btn-primary"
+                      data-bs-target="#exampleModalToggle2"
+                      data-bs-toggle="modal"
+                      data-bs-dismiss="modal"
+                    >
                       Ingresar
                     </button>
                   </div>
@@ -235,7 +250,6 @@
       <div
         class="modal fade"
         id="exampleModalToggle2"
-        aria-hidden="true"
         aria-labelledby="exampleModalToggleLabel2"
         tabindex="-1"
       >
