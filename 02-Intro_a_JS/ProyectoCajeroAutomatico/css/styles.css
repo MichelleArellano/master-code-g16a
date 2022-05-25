@@ -1,3 +1,6 @@
+body{
+    background-color: #F8F9FA;
+}
 header img{
     height: 42px;
 }
@@ -12,8 +15,11 @@ main section{
     padding: 30px 30px;
 }
 
-footer {
-    height: 10vh;
+.img-card{
+    margin-top: 40px;
+}
+
+.footer-class {
     background-color: #093b66;
 } 
 
