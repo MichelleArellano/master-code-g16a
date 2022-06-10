@@ -1,0 +1,35 @@
+/**
+ * Ejercicio Introducción a la Lógica
+ * Calcula el área de una figura con Pseudocódigo, con código y con un diagrama de flujo.
+ */
+
+/**
+ * Pseudocódigo
+ */
+
+/**
+ * Algoritmo calcular área
+ * var base, altura, area
+ * inicio
+ *  escribir ("Ingresa la base")
+ *  leer base
+ *  escribir ("Ingresa la altura")
+ *  leer altura
+ *  area = (base * altura)/2
+ *  escribir ("El área del triángulo es: " + area)
+ *  fin
+ */
+
+/**
+ * Código
+ */
+let area = 0
+
+function calcularArea(base, altura){
+    area = (base * altura)/2;
+    console.log(`El área del triángulo es ${area}`);
+}
+
+let base = prompt("Ingresa la base");
+let altura = prompt("Ingresa la altura");
+calcularArea(parseInt(base),parseInt(altura));
