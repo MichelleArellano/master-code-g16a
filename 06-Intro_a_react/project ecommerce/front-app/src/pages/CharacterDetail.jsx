@@ -65,12 +65,21 @@ const CharacterDetail = () => {
             </p>
             <p className="p-class font-weight-bold">Created at: </p>
             <p className="p-class-ids">{infoCharacter.updatedAt}</p>
+            <div className="col-12 d-flex justify-content-end mt-sm-3 mb-sm-3 pe-sm-5">
+              <button id="btn-login" className="btn btn-success">
+                Add
+              </button>
+            </div>
           </div>
         </section>
       </main>
-      <div class="float-button">
-        <button onClick={() => navigate(-1)} class="button-mark" target="_blank">
-          <span class="material-icons-outlined">arrow_back</span>
+      <div className="float-button">
+        <button
+          onClick={() => navigate(-1)}
+          className="button-mark"
+          target="_blank"
+        >
+          <span className="material-icons-outlined">arrow_back</span>
         </button>
       </div>
       <Footer></Footer>

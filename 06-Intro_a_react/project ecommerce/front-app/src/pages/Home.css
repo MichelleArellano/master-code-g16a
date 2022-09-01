@@ -2,3 +2,7 @@
     cursor: pointer;
     color: red;
 }
+
+.table-btn-class {
+    padding: 14px 90px 14px 90px;
+}

@@ -15,22 +15,23 @@ const Form = ({ setisUserLogged }) => {
     setcredentials({ ...credentials, [name]: value });
   };
 
-  const validateLogin = () => {
-    loginUser(credentials)().then((res) => {
-      console.log("credentials", credentials);
-      console.log(res);
-      setisUserLogged(true);
-      setcredentials({});
-      navigate("/character", { replace: true });
-    });
-    // if (
-    //   credentials.user === userHardcoded &&
-    //   credentials.password === passwordHardcoded
-    // ) {
+  const validateLogin = (event) => {
+    // event.preventDefault();
+    // loginUser(credentials)().then((res) => {
+    //   console.log("credentials", credentials);
+    //   console.log(res);
     //   setisUserLogged(true);
     //   setcredentials({});
     //   navigate("/character", { replace: true });
-    // }
+    // });
+    if (
+      credentials.user === userHardcoded &&
+      credentials.password === passwordHardcoded
+    ) {
+      setisUserLogged(true);
+      setcredentials({});
+      navigate("/character", { replace: true });
+    }
   };
 
   return (
@@ -101,9 +102,6 @@ const Form = ({ setisUserLogged }) => {
                   <button
                     id="btn-login"
                     className="btn btn-primary"
-                    data-bs-target="#exampleModalToggle2"
-                    data-bs-toggle="modal"
-                    data-bs-dismiss="modal"
                     type="submit"
                     onClick={validateLogin}
                   >

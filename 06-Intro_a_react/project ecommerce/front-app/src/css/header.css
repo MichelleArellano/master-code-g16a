@@ -6,3 +6,8 @@
 .header {
     background-color: #F8F9FA
 }
+
+.position-class {
+    position: absolute;
+    right: 12px;
+}

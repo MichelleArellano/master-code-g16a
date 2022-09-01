@@ -1,98 +1,104 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import "./Home.css";
+import DataTable from "react-data-table-component";
 import Footer from "../components/Footer";
-import Header from "../components/Header";
-import CharacterDetail from "./CharacterDetail";
-import { Link, useNavigate } from "react-router-dom";
+import HeaderHome from "../components/HeaderHome";
+import { useNavigate } from "react-router-dom";
 import { getAllItems } from "../calls/actions.js";
+import "./Home.css";
+import "styled-components";
 
 const Home = ({ logout }) => {
   const [charactersArray, setcharactersArray] = useState([]);
-  const [idCharacter, setidCharacter] = useState(0);
-
+  const [search, setSearch] = useState("");
   const navigate = useNavigate();
-
   const fecha_actual = new Date().toLocaleDateString();
-  /**
-   *  IMPLEMENTAR LLAMADA SWAAPI CUANDO SE MONTE EL COMPONENT, UNA SOLA VEZ
-   */
+  const [pending, setPending] = React.useState(true);
 
   useEffect(() => {
-    getAllItems().then((res) => {
-      console.log("Items");
-      console.log(res);
-      setcharactersArray(res.filter((items) => items.isActive === true));
-      console.log(`character array ${charactersArray}`);
-    });
+    const timeout = setTimeout(() => {
+      getAllItems().then((res) => {
+        setcharactersArray(res.filter((items) => items.isActive === true));
+      });
+      setPending(false);
+    }, 2000);
+    return () => clearTimeout(timeout);
   }, []);
 
-  // const getStarWarsCharacters = async () => {
-  //   try {
-  //     const { data: { results } } = await axios.get('https://swapi.dev/api/people')
-  //     console.log('result', results)
-  //   } catch(error) {
-  //     console.log('error', error)
-  //   }
-  // }
+  const columns = [
+    {
+      name: "Product",
+      selector: (row) => row.product_name,
+    },
+    {
+      name: "Brand",
+      selector: (row) => row.brand,
+    },
+    {
+      name: "Category",
+      selector: (row) => row.category,
+    },
+    {
+      name: "Price",
+      selector: (row) => row.price,
+    },
+    {
+      name: "Action",
+      cell: (row) => (
+        <button
+          className="btn btn-primary"
+          onClick={() => {
+            navigate(`/character/${row._id}`);
+          }}
+        >
+          Buy
+        </button>
+      ),
+    },
+  ];
 
-  // se deberá ocultar este componente ????? 🤡
+  const searchData = (event) => {
+    setSearch(event.target.value);
+    console.log(search);
+  };
 
   const handleLogout = () => {
-    {
-      /* STEP 2 MANDAR INFO DE COMP HIJO AL PADRE (función) */
-    }
+    setcharactersArray([]);
     logout();
   };
 
-  const handleCharacterId = (id) => setidCharacter(id);
-
-  // POR MEDIO DE UN EVENTO MANDAR EL ID  DE CADA PERSONAJE
-
   return (
     <>
-      <Header></Header>
+      <HeaderHome searchData={searchData}></HeaderHome>
       <main>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
-        {!charactersArray.length ? (
-          <h4> Cargando... </h4>
-        ) : (
-          charactersArray.map((objectInfo, index) => (
-            <Link to={`/character/${objectInfo._id}`}>
-              <h3 key={index}>{objectInfo.product_name}</h3>
-            </Link>
-          ))
-        )}
-        {idCharacter > 0 && <CharacterDetail id={idCharacter} />}
+        <div className="table-btn-class">
+          <DataTable
+            columns={columns}
+            data={charactersArray.filter((item) => {
+              if (search === "") {
+                return item;
+              } else if (
+                item.product_name.toLowerCase().includes(search.toLowerCase())
+              ) {
+                return item;
+              }
+            })}
+            pagination
+            progressPending={pending}
+            dense
+          />
+        </div>
       </main>
+      <div className="float-button">
+        <button
+          onClick={() => navigate(-1)}
+          className="button-mark"
+          target="_blank"
+        >
+          <span className="material-icons-outlined" onClick={handleLogout}>
+            exit_to_app
+          </span>
+        </button>
+      </div>
       <Footer></Footer>
     </>
   );

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "../css/header.css";
 
-const Header = () => {
+const HeaderHome = ({ searchData }) => {
   return (
     <>
       <header>
@@ -27,17 +27,16 @@ const Header = () => {
               className="collapse navbar-collapse"
               id="navbarSupportedContent"
             >
-              <div className="d-flex justify-content-end">
-                <button
-                  id="search-name-btn"
-                  className="btn btn-primary"
-                  type="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#modalLogin"
-                >
-                  Sign Up
-                </button>
-              </div>
+              <form className="d-flex justify-content-center position-class">
+                <input
+                  id="search-name"
+                  className="form-control me-2"
+                  type="search"
+                  placeholder="Search by product"
+                  aria-label="Search"
+                  onChange={(event) => searchData(event)}
+                ></input>
+              </form>
             </div>
           </div>
         </nav>
@@ -46,4 +45,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderHome;
