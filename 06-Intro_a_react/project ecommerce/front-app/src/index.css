@@ -1,0 +1,64 @@
+body{
+  background-color: #CFE2FF;
+}
+header img{
+  height: 42px;
+}
+
+main {
+  background-color: #9fc4fb;
+  height: 80vh;
+} 
+
+main section{
+  height: 100%;
+  padding: 30px 30px;
+}
+
+.img-card{
+  margin-top: 40px;
+}
+
+.footer-class {
+  background-color: #093b66;
+} 
+
+.card{
+  width: 30rem;
+}
+
+.profile{
+  height: 42px;
+}
+
+.float-button {
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 40px;
+}
+
+.float-button span {
+  font-weight: bold;
+}
+
+.button-mark,
+.button-add {
+  align-items: center;
+  background: #ffffff;
+  bottom: 30px;
+  border-radius: 50px;
+  border: none;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+  color: #000000;
+  display: flex;
+  font-size: 40px;
+  height: 55px;
+  justify-content: center;
+  margin-top: 10px;
+  right: 30px;
+  text-decoration: none;
+  width: 55px;
+  z-index: 100;
+}
