@@ -1,0 +1,13 @@
+$labelName: rgb(217, 177, 217);
+
+.app {
+  .box {
+    width: 150px;
+    height: 200px;
+    border: 3px solid orangered;
+  }
+
+  label {
+    color: $labelName;
+  }
+}
