@@ -1,11 +1,9 @@
-import Header from './components/Header'
-import Footer from './components/Footer'
+import MainRouter from './routers/MainRouter'
 
 function App () {
   return (
     <>
-      <Header />
-      <Footer />
+      <MainRouter />
     </>
   )
 }
