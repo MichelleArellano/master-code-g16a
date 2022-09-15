@@ -1,0 +1,77 @@
+main {
+    background-color: #9fc4fb;
+    height: 80vh;
+  } 
+
+.section-class {
+    height: 100%;
+    width: 100%;
+  }
+
+.section-class-login-1 {
+    height: 100%;
+    margin-left: 100px;
+}
+
+.section-class-signup-1 {
+  height: 100%;
+  margin-left: 30px;
+}
+
+.section-class-2 {
+  height: 100%;
+}
+
+.card-dimesions-login-class, 
+.card-dimesions-signup-class {
+  height: 90%;
+  width: 90%;
+}
+
+.text-class {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 60px;
+  color: white;
+}
+
+.text-position-login-class {
+  filter: blur(0.3px);
+  height: 50%;
+  width: 70%;
+  margin-left: 150px;
+  margin-top: 300px;
+}
+
+.text-position-signup-class {
+  filter: blur(0.3px);
+  height: 50%;
+  width: 70%;
+  margin-left: 240px;
+  margin-top: 150px;
+}
+
+.img-background {
+	background-image: url(https://directivosygerentes.es/wp-content/uploads/2020/03/Ecommerce.jpg);
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.img-background:before {
+  filter: blur(6px);
+	content:'';
+	position: absolute;
+        top: 10vh;
+	bottom: 10vh;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.4);
+}
+
+.datepicker-class {
+  padding: .25rem .5rem;
+  font-size: .875rem;
+  border-radius: .2rem;
+  width: 100%;
+  border-color: rgba(0,0,0,0.1);
+}

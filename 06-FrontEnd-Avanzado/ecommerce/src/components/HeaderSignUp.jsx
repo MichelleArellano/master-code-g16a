@@ -1,14 +1,17 @@
 import React from 'react'
-import '../css/header.css'
+import '../styles/header.css'
+import { useNavigate } from 'react-router-dom'
 
-const Header = () => {
+const HeaderSignUp = () => {
+  const navigate = useNavigate()
+
   return (
     <>
       <header>
         <nav className='navbar navbar-expand-lg navbar-light bg-light'>
           <div className='container-fluid'>
             <a className='navbar-brand' href='#'>
-              <img src='../src/img/logo.png' alt='logo' />
+              <img src='../src/assets/img/logo.png' alt='logo' />
               Little Foot Print
             </a>
             <button
@@ -31,8 +34,11 @@ const Header = () => {
                   id='sign-up-btn'
                   className='btn btn-primary'
                   type='button'
+                  onClick={() => {
+                    navigate('/login')
+                  }}
                 >
-                  Sign Up
+                  Sign In
                 </button>
               </div>
             </div>
@@ -43,4 +49,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default HeaderSignUp
