@@ -1,7 +1,10 @@
-.header {
-    background-color: #F8F9FA
+header {
+    background-color: #F8F9FA;
+    height: 10vh;
+    width: 100%;
 }
 
 header img{
-    height: 42px;
+    height: 38px;
+    padding-right: 10px;
   }

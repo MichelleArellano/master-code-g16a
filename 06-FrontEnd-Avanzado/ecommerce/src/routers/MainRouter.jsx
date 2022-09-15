@@ -1,14 +1,15 @@
-import { Routes, Route, Link, BrowserRouter } from 'react-router-dom'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import App from '../App'
-import Form from '../pages/Form'
+import Login from '../pages/Login'
 
 const MainRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Form />} />
-        <Route path='/login' element={<App />} />
+        <Route path='/' element={<Login />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<App />} />
+        <Route path='/home' element={<App />} />
         <Route
           path='*'
           element={
