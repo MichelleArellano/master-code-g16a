@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
-import HeaderSignIn from '../components/HeaderSignIn'
+import Header from '../components/Header'
 import '../styles/loginSignUp.css'
 import useForm from '../hooks/useForm'
 import { ContextUser } from '../context/ContextUser'
@@ -39,7 +39,7 @@ const Login = () => {
 
   return (
     <>
-      <HeaderSignIn />
+      <Header />
       <main>
         <section className='section-class img-background'>
           <div className='d-flex section-class'>

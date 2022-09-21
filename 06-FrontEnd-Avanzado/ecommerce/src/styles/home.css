@@ -6,3 +6,35 @@
 .table-btn-class {
     padding: 14px 90px 14px 90px;
 }
+
+.float-button {
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 25px;
+  }
+  
+  .float-button span {
+    font-weight: bold;
+  }
+  
+  .button-mark,
+  .button-add {
+    align-items: center;
+    background: #ffffff;
+    bottom: 30px;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+    color: #093b66;
+    display: flex;
+    font-size: 40px;
+    height: 55px;
+    justify-content: center;
+    margin-top: 10px;
+    right: 30px;
+    text-decoration: none;
+    width: 55px;
+    z-index: 100;
+  }

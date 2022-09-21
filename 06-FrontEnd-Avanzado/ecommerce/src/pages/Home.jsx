@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
 import Footer from '../components/Footer'
-import HeaderHome from '../components/HeaderHome'
+import Header from '../components/Header'
 import { useNavigate } from 'react-router-dom'
 import { getAllItems } from '../services/actions.js'
 import '../styles/home.css'
@@ -68,7 +68,7 @@ const Home = ({ logout }) => {
 
   return (
     <>
-      <HeaderHome searchData={searchData} />
+      <Header searchData={searchData} />
       <main>
         <div className='table-btn-class'>
           <DataTable
@@ -90,11 +90,10 @@ const Home = ({ logout }) => {
       </main>
       <div className='float-button'>
         <button
-          onClick={() => navigate(-1)}
           className='button-mark'
           target='_blank'
         >
-          <span className='material-icons-outlined' onClick={handleLogout}>
+          <span className='material-icons-outlined'>
             exit_to_app
           </span>
         </button>

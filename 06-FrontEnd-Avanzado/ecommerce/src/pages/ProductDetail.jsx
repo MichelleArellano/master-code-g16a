@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import Footer from '../components/Footer'
-import HeaderCharacterDetail from '../components/HeaderCharacterDetail'
+import Header from '../components/Header'
 import { getItemsById } from '../services/actions.js'
 import '../styles/productDetail.css'
 
@@ -25,7 +25,7 @@ const ProductDetail = () => {
 
   return (
     <>
-      <HeaderCharacterDetail />
+      <Header />
       <main>
         <section className='d-flex justify-content-around'>
           <div className='pt-sm-4 card'>
