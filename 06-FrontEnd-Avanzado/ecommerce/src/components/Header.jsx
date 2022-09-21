@@ -75,7 +75,7 @@ const Header = ({ searchData }) => {
                         Sign In
                       </button>
                     </div>
-                  </>
+                    </>
                   : window.location.pathname === '/login'
                     ? <>
                       <NavLink to='/home'>Home</NavLink>
@@ -91,8 +91,7 @@ const Header = ({ searchData }) => {
                           Sign Up
                         </button>
                       </div>
-                      </>
-
+                    </>
                     : window.location.pathname === '/signup'
                       ? <>
                         <NavLink to='/home'>Home</NavLink>
@@ -108,7 +107,7 @@ const Header = ({ searchData }) => {
                             Sign In
                           </button>
                         </div>
-                      </>
+                        </>
                       : <p />
               }
             </div>

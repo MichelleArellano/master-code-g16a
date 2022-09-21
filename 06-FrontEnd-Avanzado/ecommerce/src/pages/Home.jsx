@@ -1,103 +1,79 @@
 import React, { useEffect, useState } from 'react'
-import DataTable from 'react-data-table-component'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-import { useNavigate } from 'react-router-dom'
 import { getAllItems } from '../services/actions.js'
 import '../styles/home.css'
 import 'styled-components'
+import { useNavigate } from 'react-router-dom'
 
-const Home = ({ logout }) => {
+const Home = () => {
   const [charactersArray, setcharactersArray] = useState([])
   const [search, setSearch] = useState('')
   const navigate = useNavigate()
-  const fecha_actual = new Date().toLocaleDateString()
-  const [pending, setPending] = React.useState(true)
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       getAllItems().then((res) => {
-        setcharactersArray(res.filter((items) => items.isActive === true))
+        setcharactersArray(res)
+        console.log('res', res)
       })
-      setPending(false)
     }, 2000)
     return () => clearTimeout(timeout)
   }, [])
-
-  const columns = [
-    {
-      name: 'Product',
-      selector: (row) => row.product_name
-    },
-    {
-      name: 'Brand',
-      selector: (row) => row.brand
-    },
-    {
-      name: 'Category',
-      selector: (row) => row.category
-    },
-    {
-      name: 'Price',
-      selector: (row) => row.price
-    },
-    {
-      name: 'Action',
-      cell: (row) => (
-        <button
-          className='btn btn-primary'
-          onClick={() => {
-            navigate(`/product_detail/${row._id}`)
-          }}
-        >
-          Buy
-        </button>
-      )
-    }
-  ]
 
   const searchData = (event) => {
     setSearch(event.target.value)
     console.log(search)
   }
 
-  const handleLogout = () => {
-    setcharactersArray([])
-    logout()
+  let results = []
+  if (!search) {
+    results = charactersArray
+  } else {
+    results = charactersArray.filter(
+      (character) => character.product_name.toLowerCase().includes(search.toLowerCase())
+    )
   }
 
   return (
     <>
       <Header searchData={searchData} />
       <main>
-        <div className='table-btn-class'>
-          <DataTable
-            columns={columns}
-            data={charactersArray.filter((item) => {
-              if (search === '') {
-                return item
-              } else if (
-                item.product_name.toLowerCase().includes(search.toLowerCase())
-              ) {
-                return item
-              }
-            })}
-            pagination
-            progressPending={pending}
-            dense
-          />
+        <div>
+          {charactersArray.length <= 0
+            ? (
+              <h1>Cargando...</h1>
+              )
+            : (
+                results.map((characters) => (
+                  <div key={characters._id} className='card-container'>
+                    <div className='card'>
+                      <div className='card-body'>
+                        {!characters.image || !characters.image.includes('/')
+                          ? (
+                            <img src='../src/assets/img/img-not-available.png' alt='productImg' className='card-img-top' />
+                            )
+                          : (<img src={characters.image} alt='productImg' className='card-img-top' />)}
+                        <h5 className='card-title'>{characters.product_name}</h5>
+                        <h6 className='card-subtitle mb-2 text-muted'>
+                          {characters.brand}
+                        </h6>
+                        <p className='card-text'>{characters.description}</p>
+                        <button
+                          className='btn btn-primary'
+                          onClick={() => {
+                            navigate(`/product_detail/${characters._id}`)
+                          }}
+                        >
+                          Buy
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              )}
         </div>
       </main>
-      <div className='float-button'>
-        <button
-          className='button-mark'
-          target='_blank'
-        >
-          <span className='material-icons-outlined'>
-            exit_to_app
-          </span>
-        </button>
-      </div>
       <Footer />
     </>
   )
