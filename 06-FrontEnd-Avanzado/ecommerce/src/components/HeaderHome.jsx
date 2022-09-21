@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { BrowserRouter, Routes, Route, Navigate, useNavigate, NavLink } from 'react-router-dom'
 import '../styles/header.css'
-import { useNavigate, NavLink } from 'react-router-dom'
 
-const HeaderSignUp = () => {
+const HeaderHome = ({ searchData }) => {
   const navigate = useNavigate()
-
   return (
     <>
       <header>
@@ -29,7 +28,29 @@ const HeaderSignUp = () => {
               className='justify-content-end collapse navbar-collapse'
               id='navbarSupportedContent'
             >
-              <NavLink class='navbar-brand mb-0 h1' to='/home'>Home</NavLink>
+              <div className='d-flex justify-content-end'>
+                <input
+                  id='search-name'
+                  className='form-control me-2'
+                  type='search'
+                  placeholder='Search by product'
+                  aria-label='Search'
+                  onChange={(event) => searchData(event)}
+                />
+              </div>
+
+              <div className='d-flex justify-content-end'>
+                <button
+                  id='sign-in-btn'
+                  className='btn btn-primary'
+                  type='button'
+                  onClick={() => {
+                    navigate('/signup')
+                  }}
+                >
+                  Sign Up
+                </button>
+              </div>
               <div className='d-flex justify-content-end'>
                 <button
                   id='sign-up-btn'
@@ -50,4 +71,4 @@ const HeaderSignUp = () => {
   )
 }
 
-export default HeaderSignUp
+export default HeaderHome

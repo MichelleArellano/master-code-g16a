@@ -1,13 +1,45 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
-import Header from '../components/HeaderSignIn'
-import '../styles/login.css'
+import HeaderSignIn from '../components/HeaderSignIn'
+import '../styles/loginSignUp.css'
+import useForm from '../hooks/useForm'
+import { ContextUser } from '../context/ContextUser'
 
 const Login = () => {
+  const navigate = useNavigate()
+
+  const [data, setData] = useState({
+    email: '',
+    password: ''
+  })
+
+  const { user, setUser } = useContext(ContextUser)
+  console.log(user)
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     const info = {
+  //       email: 'gatitos123@gmail.com',
+  //       password: 'gatitos123'
+  //     }
+  //     setData(info)
+  //   }, 2000)
+  // }, [])
+
+  const sendData = (data) => {
+    console.log(data)
+    setUser(data)
+    setData(data)
+    console.log(user)
+    navigate('/home', { replace: true })
+  }
+
+  const { input, handleInputChange, handleSubmit } = useForm(sendData, data)
+
   return (
     <>
-      <Header />
+      <HeaderSignIn />
       <main>
         <section className='section-class img-background'>
           <div className='d-flex section-class'>
@@ -25,7 +57,7 @@ const Login = () => {
                   </div>
                   <div className='ms-sm-5 me-sm-5'>
                     <div className='col-sm-12'>
-                      <label className='form-label'>User</label>
+                      <label className='form-label'>Email</label>
                       <div className='input-group input-group-sm'>
                         <span
                           className='input-group-text mb-sm-3'
@@ -36,11 +68,11 @@ const Login = () => {
                         <input
                           type='text'
                           className='form-control mb-sm-3'
-                          id='user'
+                          id='email'
                           required
-                          value=''
-                          name='user'
-                          onChange=''
+                          value={input.email}
+                          name='email'
+                          onChange={handleInputChange}
                         />
                       </div>
                     </div>
@@ -52,9 +84,9 @@ const Login = () => {
                           className='form-control mb-sm-3'
                           id='password'
                           required
-                          value=''
+                          value={input.password}
                           name='password'
-                          onChange=''
+                          onChange={handleInputChange}
                         />
                       </div>
                     </div>
@@ -77,7 +109,7 @@ const Login = () => {
                         id='btn-login'
                         className='btn btn-primary'
                         type='submit'
-                        onClick=''
+                        onClick={handleSubmit}
                       >
                         Sign In
                       </button>

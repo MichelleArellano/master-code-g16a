@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/header.css'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 
 const HeaderSignIn = () => {
   const navigate = useNavigate()
@@ -29,6 +29,7 @@ const HeaderSignIn = () => {
               className='justify-content-end collapse navbar-collapse'
               id='navbarSupportedContent'
             >
+              <NavLink class='navbar-brand mb-0 h1' to='/home'>Home</NavLink>
               <div className='d-flex justify-content-end'>
                 <button
                   id='sign-in-btn'
