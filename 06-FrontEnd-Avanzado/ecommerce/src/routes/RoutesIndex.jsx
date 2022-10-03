@@ -1,12 +1,7 @@
-import { Routes, Route, BrowserRouter, useNavigate, Navigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import App from '../App'
-import Login from '../pages/Login'
-import SignUp from '../pages/SignUp'
-import Home from '../pages/Home'
-import ProductDetail from '../pages/ProductDetail'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import { Home, Login, SignUp, ProductDetail } from '../pages'
 
-const MainRouter = () => {
+const RoutesIndex = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -30,4 +25,4 @@ const MainRouter = () => {
   )
 }
 
-export default MainRouter
+export default RoutesIndex

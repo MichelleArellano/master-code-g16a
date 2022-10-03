@@ -42,12 +42,12 @@ const Home = () => {
         <div>
           {charactersArray.length <= 0
             ? (
-              <h1>Cargando...</h1>
+              <h1>Loading...</h1>
               )
             : (
                 results.map((characters) => (
-                  <div key={characters._id} className='card-container'>
-                    <div className='card'>
+                  <div key={characters._id} className='dflex card-container'>
+                    <div className='card card-class'>
                       <div className='card-body'>
                         {!characters.image || !characters.image.includes('/')
                           ? (

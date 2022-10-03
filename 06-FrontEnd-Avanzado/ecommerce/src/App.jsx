@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import MainRouter from './routes/MainRouter'
+import RoutesIndex from './routes/RoutesIndex'
 import { ContextUser } from './context/ContextUser'
 
 function App () {
@@ -15,7 +15,7 @@ function App () {
         setUser
       }}
       >
-        <MainRouter />
+        <RoutesIndex />
       </ContextUser.Provider>
     </>
   )
