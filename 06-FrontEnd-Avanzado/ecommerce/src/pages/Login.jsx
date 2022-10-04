@@ -99,7 +99,7 @@ const Login = () => {
                           disabled
                           required
                         />
-                        <label className='form-check-label mb-sm-4'>
+                        <label className='form-check-label mb-sm-2'>
                           I'm not a robot.
                         </label>
                       </div>
@@ -107,7 +107,7 @@ const Login = () => {
                     <div className='col-sm-12 d-flex justify-content-center'>
                       <button
                         id='btn-login'
-                        className='btn btn-primary'
+                        className='btn btn-primary mb-sm-4'
                         type='submit'
                         onClick={handleSubmit}
                       >

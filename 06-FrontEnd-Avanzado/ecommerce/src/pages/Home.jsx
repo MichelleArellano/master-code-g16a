@@ -30,8 +30,8 @@ const Home = () => {
   if (!search) {
     results = charactersArray
   } else {
-    results = charactersArray.filter(
-      (character) => character.product_name.toLowerCase().includes(search.toLowerCase())
+    results = charactersArray.filter((character) =>
+      character.product_name.toLowerCase().includes(search.toLowerCase())
     )
   }
 
@@ -39,26 +39,46 @@ const Home = () => {
     <>
       <Header searchData={searchData} />
       <main>
-        <div>
+        <div className='grid-container'>
           {charactersArray.length <= 0
             ? (
               <h1>Loading...</h1>
               )
             : (
                 results.map((characters) => (
-                  <div key={characters._id} className='dflex card-container'>
-                    <div className='card card-class'>
-                      <div className='card-body'>
+                  <div
+                    key={characters._id}
+                    className='dflex card-container mt-sm-4 mb-sm-4'
+                  >
+                    <div className='card'>
+                      <div className='card-body card-class'>
                         {!characters.image || !characters.image.includes('/')
                           ? (
-                            <img src='../src/assets/img/img-not-available.png' alt='productImg' className='card-img-top' />
+                            <div className='d-flex align-items-center justify-content-center img-class-container'>
+                              <img
+                                src='../src/assets/img/img-not-available.png'
+                                alt='productImg'
+                                className='img-class'
+                              />
+                            </div>
                             )
-                          : (<img src={characters.image} alt='productImg' className='card-img-top' />)}
-                        <h5 className='card-title'>{characters.product_name}</h5>
-                        <h6 className='card-subtitle mb-2 text-muted'>
-                          {characters.brand}
-                        </h6>
-                        <p className='card-text'>{characters.description}</p>
+                          : (
+                            <div className='d-flex align-items-center justify-content-center img-class-container'>
+                              <img
+                                src={characters.image}
+                                alt='productImg'
+                                className='img-class'
+                              />
+                            </div>
+                            )}
+                        <div className='align-items-center justify-content-center'>
+                          <h5 className='card-title mt-sm-2 title-class'>
+                            {characters.product_name}
+                          </h5>
+                          <h6 className='card-subtitle mt-sm-2 mb-sm-3 text-muted'>
+                            {characters.brand}
+                          </h6>
+                        </div>
                         <button
                           className='btn btn-primary'
                           onClick={() => {
