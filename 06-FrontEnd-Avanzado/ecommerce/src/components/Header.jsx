@@ -1,12 +1,5 @@
 import React, { useState, useContext } from 'react'
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Navigate,
-  useNavigate,
-  NavLink
-} from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 import '../styles/header.css'
 import { ContextUser } from '../context/ContextUser'
 
@@ -38,10 +31,11 @@ const Header = ({ searchData }) => {
               className='justify-content-end collapse navbar-collapse'
               id='navbarSupportedContent'
             >
-              {
-                window.location.pathname === '/' || window.location.pathname === '/home'
-                  ? <>
-                    <div className='d-flex justify-content-end'>
+              {window.location.pathname === '/' ||
+              window.location.pathname === '/home'
+                ? (
+                  <>
+                    <div className='d-flex justify-content-end me-sm-2'>
                       <input
                         id='search-name'
                         className='form-control me-2'
@@ -51,7 +45,7 @@ const Header = ({ searchData }) => {
                         onChange={(event) => searchData(event)}
                       />
                     </div>
-                    <div className='d-flex justify-content-end'>
+                    <div className='d-flex justify-content-end me-sm-2'>
                       <button
                         id='sign-in-btn'
                         className='btn btn-primary'
@@ -75,10 +69,23 @@ const Header = ({ searchData }) => {
                         Sign In
                       </button>
                     </div>
-                    </>
-                  : window.location.pathname === '/login'
-                    ? <>
-                      <NavLink to='/home'>Home</NavLink>
+                  </>
+                  )
+                : window.location.pathname === '/login'
+                  ? (
+                    <>
+                      <div className='d-flex justify-content-end me-sm-2'>
+                        <button
+                          id='sign-in-btn'
+                          className='btn btn-light'
+                          type='button'
+                          onClick={() => {
+                            navigate('/home')
+                          }}
+                        >
+                          Home
+                        </button>
+                      </div>
                       <div className='d-flex justify-content-end'>
                         <button
                           id='sign-in-btn'
@@ -92,9 +99,22 @@ const Header = ({ searchData }) => {
                         </button>
                       </div>
                     </>
-                    : window.location.pathname === '/signup'
-                      ? <>
-                        <NavLink to='/home'>Home</NavLink>
+                    )
+                  : window.location.pathname === '/signup'
+                    ? (
+                      <>
+                        <div className='d-flex justify-content-end me-sm-2'>
+                          <button
+                            id='sign-in-btn'
+                            className='btn btn-light'
+                            type='button'
+                            onClick={() => {
+                              navigate('/home')
+                            }}
+                          >
+                            Home
+                          </button>
+                        </div>
                         <div className='d-flex justify-content-end'>
                           <button
                             id='sign-in-btn'
@@ -107,9 +127,11 @@ const Header = ({ searchData }) => {
                             Sign In
                           </button>
                         </div>
-                        </>
-                      : <p />
-              }
+                      </>
+                      )
+                    : (
+                      <p />
+                      )}
             </div>
           </div>
         </nav>

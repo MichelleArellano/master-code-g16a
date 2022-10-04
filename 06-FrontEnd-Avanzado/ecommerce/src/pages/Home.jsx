@@ -75,7 +75,7 @@ const Home = () => {
                           <h5 className='card-title mt-sm-2 title-class'>
                             {characters.product_name}
                           </h5>
-                          <h6 className='card-subtitle mt-sm-2 mb-sm-3 text-muted'>
+                          <h6 className='card-subtitle mt-sm-2 mb-sm-3 text-muted title-class'>
                             {characters.brand}
                           </h6>
                         </div>
