@@ -38,7 +38,7 @@ const Home = () => {
   return (
     <>
       <Header searchData={searchData} />
-      <main>
+      <main className='main-home-class'>
         <div className='grid-container'>
           {charactersArray.length <= 0
             ? (

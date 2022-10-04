@@ -1,14 +1,52 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import '../styles/loginSignUp.css'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
+import useForm from '../hooks/useForm'
 
 const SignUp = () => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const [startDate, setStartDate] = useState(new Date())
+
+  const [data, setData] = useState({
+    first_name: '',
+    last_name: '',
+    birth_date: '',
+    gender: '',
+    email: '',
+    password: ''
+  })
+
+  const sendData = (data) => {
+    data.birth_date = convertDate(startDate)
+    console.log(data)
+    // setData('')
+  }
+
+  const { input, handleInputChange, handleSubmit } = useForm(sendData, data)
+
+  function convertDate (date) {
+    const dateStr = date.toString()
+    const parts = dateStr.split(' ')
+    const months = {
+      Jan: '01',
+      Feb: '02',
+      Mar: '03',
+      Apr: '04',
+      May: '05',
+      Jun: '06',
+      Jul: '07',
+      Aug: '08',
+      Sep: '09',
+      Oct: '10',
+      Nov: '11',
+      Dec: '12'
+    }
+    return parts[3] + '-' + months[parts[1]] + '-' + parts[2]
+  }
+
   return (
     <>
       <Header />
@@ -17,7 +55,7 @@ const SignUp = () => {
           <div className='d-flex section-class'>
             <div className='section-class-signup-1 col-5 d-flex align-items-center justify-content-center'>
               <div className='card card-dimesions-signup-class'>
-                <form id='form'>
+                <form id='form' onSubmit={handleSubmit}>
                   <div className='text-center mt-sm-3 mb-sm-3'>
                     <img
                       className='mb-sm-'
@@ -37,9 +75,9 @@ const SignUp = () => {
                             className='form-control mb-sm-3'
                             id='first_name'
                             required
-                            value=''
+                            value={input.first_name}
                             name='first_name'
-                            onChange=''
+                            onChange={handleInputChange}
                           />
                         </div>
                       </div>
@@ -49,11 +87,11 @@ const SignUp = () => {
                           <input
                             type='text'
                             className='form-control mb-sm-3'
-                            id='first_name'
+                            id='last_name'
                             required
-                            value=''
-                            name='first_name'
-                            onChange=''
+                            value={input.last_name}
+                            name='last_name'
+                            onChange={handleInputChange}
                           />
                         </div>
                       </div>
@@ -62,27 +100,27 @@ const SignUp = () => {
                       <div className='col-sm-6'>
                         <label className='form-label'>Gender</label>
                         <br />
-                        <div class='form-check form-check-inline'>
+                        <div className='form-check form-check-inline' value={input.gender} onChange={handleInputChange}>
                           <input
-                            class='form-check-input'
+                            className='form-check-input'
                             type='radio'
                             name='gender'
                             id='inlineRadio1'
                             value='M'
                           />
-                          <label class='form-check-label' for='inlineRadio1'>
+                          <label className='form-check-label' htmlFor='inlineRadio1'>
                             Male
                           </label>
                         </div>
-                        <div class='form-check form-check-inline'>
+                        <div className='form-check form-check-inline' value={input.gender} onChange={handleInputChange}>
                           <input
-                            class='form-check-input'
+                            className='form-check-input'
                             type='radio'
                             name='gender'
                             id='inlineRadio2'
                             value='F'
                           />
-                          <label class='form-check-label' for='inlineRadio2'>
+                          <label className='form-check-label' htmlFor='inlineRadio2'>
                             Female
                           </label>
                         </div>
@@ -92,7 +130,6 @@ const SignUp = () => {
                         <DatePicker
                           className='datepicker-class'
                           selected={startDate}
-                          dateFormat='dd/MM/yyyy'
                           onChange={(date) => setStartDate(date)}
                         />
                       </div>
@@ -112,9 +149,9 @@ const SignUp = () => {
                             className='form-control mb-sm-3'
                             id='email'
                             required
-                            value=''
+                            value={input.email}
                             name='email'
-                            onChange=''
+                            onChange={handleInputChange}
                           />
                         </div>
                       </div>
@@ -126,9 +163,9 @@ const SignUp = () => {
                             className='form-control mb-sm-4'
                             id='password'
                             required
-                            value=''
+                            value={input.password}
                             name='password'
-                            onChange=''
+                            onChange={handleInputChange}
                           />
                         </div>
                       </div>
@@ -139,7 +176,6 @@ const SignUp = () => {
                         id='btn-login'
                         className='btn btn-primary mb-sm-3'
                         type='submit'
-                        onClick=''
                       >
                         Sign Up
                       </button>

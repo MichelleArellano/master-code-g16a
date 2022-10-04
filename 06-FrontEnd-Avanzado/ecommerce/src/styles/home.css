@@ -40,7 +40,7 @@
   }
 
 .card-class{
-  width: 250px;
+  width: 240px;
   height: 330px;
 }
 
@@ -70,7 +70,7 @@
   object-fit: cover;
 }
 
-main {
+.main-home-class {
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
