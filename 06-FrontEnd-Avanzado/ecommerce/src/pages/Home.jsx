@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-import { getAllItems } from '../services/actions.js'
+import { getItems } from '../services/actions.js'
 import '../styles/home.css'
 import 'styled-components'
 import { useNavigate } from 'react-router-dom'
@@ -13,7 +13,7 @@ const Home = () => {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      getAllItems().then((res) => {
+      getItems().then((res) => {
         setcharactersArray(res)
         console.log('res', res)
       })

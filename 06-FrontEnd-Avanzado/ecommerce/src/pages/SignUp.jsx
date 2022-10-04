@@ -5,9 +5,11 @@ import '../styles/loginSignUp.css'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import useForm from '../hooks/useForm'
+import { registerUser } from '../services/actions'
+import { useNavigate } from 'react-router-dom'
 
 const SignUp = () => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   const [startDate, setStartDate] = useState(new Date())
 
   const [data, setData] = useState({
@@ -22,7 +24,17 @@ const SignUp = () => {
   const sendData = (data) => {
     data.birth_date = convertDate(startDate)
     console.log(data)
-    // setData('')
+    const timeout = setTimeout(() => {
+      registerUser(data).then((result) => {
+        if (result.status === 200 || result.status === 201) {
+          console.log('result', result)
+          navigate('/login')
+        } else {
+          console.log('Sorry! Try again', result.status)
+        }
+      })
+    }, 2000)
+    return () => clearTimeout(timeout)
   }
 
   const { input, handleInputChange, handleSubmit } = useForm(sendData, data)

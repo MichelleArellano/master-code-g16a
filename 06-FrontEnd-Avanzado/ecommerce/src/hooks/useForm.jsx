@@ -21,7 +21,7 @@ function useForm (callback, defaults) {
     // Equivalente a:
     // const name = event.target.name
     // const value = event.target.value
-    console.log(name, value)
+    // console.log(name, value)
     setInput({ ...input, [name]: value })
   }
 
