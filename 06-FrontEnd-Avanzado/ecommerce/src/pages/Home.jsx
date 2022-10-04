@@ -48,7 +48,7 @@ const Home = () => {
                 results.map((characters) => (
                   <div
                     key={characters._id}
-                    className='dflex card-container mt-sm-4 mb-sm-4'
+                    className='dflex card-container mt-sm-4'
                   >
                     <div className='card'>
                       <div className='card-body card-class'>
@@ -58,7 +58,7 @@ const Home = () => {
                               <img
                                 src='../src/assets/img/img-not-available.png'
                                 alt='productImg'
-                                className='img-class'
+                                className='img-class pt-sm-2'
                               />
                             </div>
                             )
@@ -67,20 +67,20 @@ const Home = () => {
                               <img
                                 src={characters.image}
                                 alt='productImg'
-                                className='img-class'
+                                className='img-class pt-sm-2'
                               />
                             </div>
                             )}
                         <div className='align-items-center justify-content-center'>
-                          <h5 className='card-title mt-sm-2 title-class'>
+                          <h5 className='card-title mt-sm-3 title-class'>
                             {characters.product_name}
                           </h5>
-                          <h6 className='card-subtitle mt-sm-2 mb-sm-3 text-muted title-class'>
+                          <h6 className='card-subtitle mt-sm-2 mb-sm-2 text-muted title-class'>
                             {characters.brand}
                           </h6>
                         </div>
                         <button
-                          className='btn btn-primary'
+                          className='btn btn-primary mt-sm-3'
                           onClick={() => {
                             navigate(`/product_detail/${characters._id}`)
                           }}
