@@ -1,12 +1,8 @@
-import React, { useState, useContext } from 'react'
 import { useNavigate, NavLink } from 'react-router-dom'
 import '../styles/header.css'
-import { ContextUser } from '../context/ContextUser'
 
 const Header = ({ searchData }) => {
   const navigate = useNavigate()
-  const { user, setUser } = useContext(ContextUser)
-  console.log(user)
   return (
     <>
       <header>

@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const BASE_URL = 'https://ecomerce-master.herokuapp.com/api/v1/'
 
-export async function registerUser (data) {
+export async function registerUserService (data) {
   return new Promise((resolve, reject) => {
     const url = `${BASE_URL}/signup`
     axios
@@ -17,14 +17,14 @@ export async function registerUser (data) {
   })
 }
 
-export async function loginUser (data) {
+export async function loginUserService (data) {
   return new Promise((resolve, reject) => {
     const url = `${BASE_URL}/login`
     axios
       .post(url, data)
       .then((response) => {
-        console.log(response.data)
-        resolve(response.data)
+        console.log(response)
+        resolve(response)
       })
       .catch((error) => {
         reject(error)
@@ -38,7 +38,7 @@ export async function getItems () {
     axios
       .get(url)
       .then((response) => {
-        console.log(response.data)
+        console.log(response)
         resolve(response.data)
       })
       .catch((error) => {

@@ -1,12 +1,14 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import '../styles/loginSignUp.css'
 import useForm from '../hooks/useForm'
-import { ContextUser } from '../context/ContextUser'
+import { loginUserService } from '../services/actions'
+import { AuthContext } from '../context/AuthContext'
 
 const Login = () => {
+  const { loginUser } = useContext(AuthContext)
   const navigate = useNavigate()
 
   const [data, setData] = useState({
@@ -14,25 +16,19 @@ const Login = () => {
     password: ''
   })
 
-  const { user, setUser } = useContext(ContextUser)
-  console.log(user)
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     const info = {
-  //       email: 'gatitos123@gmail.com',
-  //       password: 'gatitos123'
-  //     }
-  //     setData(info)
-  //   }, 2000)
-  // }, [])
-
   const sendData = (data) => {
     console.log(data)
-    setUser(data)
-    setData(data)
-    console.log(user)
-    navigate('/home', { replace: true })
+    const timeout = setTimeout(() => {
+      loginUserService(data).then((result) => {
+        if (result.status === 200 || result.status === 201) {
+          loginUser(result.data.token)
+          navigate('/home', { replace: true })
+        } else {
+          console.log('Sorry! Try again', result.status)
+        }
+      })
+    }, 2000)
+    return () => clearTimeout(timeout)
   }
 
   const { input, handleInputChange, handleSubmit } = useForm(sendData, data)

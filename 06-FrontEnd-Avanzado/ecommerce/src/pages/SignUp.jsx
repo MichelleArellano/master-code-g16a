@@ -5,7 +5,7 @@ import '../styles/loginSignUp.css'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import useForm from '../hooks/useForm'
-import { registerUser } from '../services/actions'
+import { registerUserService } from '../services/actions'
 import { useNavigate } from 'react-router-dom'
 
 const SignUp = () => {
@@ -25,7 +25,7 @@ const SignUp = () => {
     data.birth_date = convertDate(startDate)
     console.log(data)
     const timeout = setTimeout(() => {
-      registerUser(data).then((result) => {
+      registerUserService(data).then((result) => {
         if (result.status === 200 || result.status === 201) {
           console.log('result', result)
           navigate('/login')
