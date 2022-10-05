@@ -1,7 +1,10 @@
+import { useContext } from 'react'
 import { useNavigate, NavLink } from 'react-router-dom'
 import '../styles/header.css'
+import { AuthContext } from '../context/AuthContext'
 
 const Header = ({ searchData }) => {
+  const { isAuth, logout } = useContext(AuthContext)
   const navigate = useNavigate()
   return (
     <>
@@ -27,8 +30,7 @@ const Header = ({ searchData }) => {
               className='justify-content-end collapse navbar-collapse'
               id='navbarSupportedContent'
             >
-              {window.location.pathname === '/' ||
-              window.location.pathname === '/home'
+              {!isAuth
                 ? (
                   <>
                     <div className='d-flex justify-content-end me-sm-2'>
@@ -40,11 +42,10 @@ const Header = ({ searchData }) => {
                         aria-label='Search'
                         onChange={(event) => searchData(event)}
                       />
-                    </div>
-                    <div className='d-flex justify-content-end me-sm-2'>
+
                       <button
                         id='sign-in-btn'
-                        className='btn btn-primary'
+                        className='btn btn-primary me-2 btn-header-class'
                         type='button'
                         onClick={() => {
                           navigate('/signup')
@@ -52,11 +53,10 @@ const Header = ({ searchData }) => {
                       >
                         Sign Up
                       </button>
-                    </div>
-                    <div className='d-flex justify-content-end'>
+
                       <button
                         id='sign-up-btn'
-                        className='btn btn-primary'
+                        className='btn btn-primary btn-header-class'
                         type='button'
                         onClick={() => {
                           navigate('/login')
@@ -67,67 +67,43 @@ const Header = ({ searchData }) => {
                     </div>
                   </>
                   )
-                : window.location.pathname === '/login'
-                  ? (
-                    <>
-                      <div className='d-flex justify-content-end me-sm-2'>
-                        <button
-                          id='sign-in-btn'
-                          className='btn btn-light'
-                          type='button'
-                          onClick={() => {
-                            navigate('/home')
-                          }}
-                        >
-                          Home
-                        </button>
-                      </div>
-                      <div className='d-flex justify-content-end'>
-                        <button
-                          id='sign-in-btn'
-                          className='btn btn-primary'
-                          type='button'
-                          onClick={() => {
-                            navigate('/signup')
-                          }}
-                        >
-                          Sign Up
-                        </button>
-                      </div>
-                    </>
-                    )
-                  : window.location.pathname === '/signup'
-                    ? (
-                      <>
-                        <div className='d-flex justify-content-end me-sm-2'>
-                          <button
-                            id='sign-in-btn'
-                            className='btn btn-light'
-                            type='button'
-                            onClick={() => {
-                              navigate('/home')
-                            }}
-                          >
-                            Home
-                          </button>
+                : (
+                  <>
+                    <div className='d-flex justify-content-end me-sm-2'>
+                      <input
+                        id='search-name'
+                        className='form-control me-2'
+                        type='search'
+                        placeholder='Search by product'
+                        aria-label='Search'
+                        onChange={(event) => searchData(event)}
+                      />
+
+                      <button className='border border-primary rounded-circle me-2 btn-header-container'>
+                        <span className='d-flex justify-content-center align-items-center material-symbols-outlined btn-header-account'>
+                          person
+                        </span>
+                      </button>
+
+                      <button
+                        id='sign-up-btn'
+                        className='btn btn-primary btn-header-class material-symbols-outlined'
+                        type='button'
+                        onClick={() => {
+                          logout()
+                          navigate('/')
+                        }}
+                      >
+                        <div className='d-flex justify-content-between align-items-center'>
+                          <span className='material-symbols-outlined'>
+                            logout
+                          </span>
+                          Logout
                         </div>
-                        <div className='d-flex justify-content-end'>
-                          <button
-                            id='sign-in-btn'
-                            className='btn btn-primary'
-                            type='button'
-                            onClick={() => {
-                              navigate('/login')
-                            }}
-                          >
-                            Sign In
-                          </button>
-                        </div>
-                      </>
-                      )
-                    : (
-                      <p />
-                      )}
+                      </button>
+                    </div>
+                  </>
+                  )}
             </div>
           </div>
         </nav>
