@@ -33,38 +33,95 @@ const Header = ({ searchData }) => {
               {!isAuth
                 ? (
                   <>
-                    <div className='d-flex justify-content-end me-sm-2'>
-                      <input
-                        id='search-name'
-                        className='form-control me-2'
-                        type='search'
-                        placeholder='Search by product'
-                        aria-label='Search'
-                        onChange={(event) => searchData(event)}
-                      />
+                    {window.location.pathname === '/login'
+                      ? (
+                        <>
+                          <div className='d-flex justify-content-end me-sm-2'>
+                            <button
+                              id='home-btn'
+                              className='btn btn-light me-2'
+                              type='button'
+                              onClick={() => {
+                                navigate('/home')
+                              }}
+                            >
+                              Home
+                            </button>
+                            <button
+                              id='sign-in-btn'
+                              className='btn btn-primary me-2'
+                              type='button'
+                              onClick={() => {
+                                navigate('/signup')
+                              }}
+                            >
+                              Sign Up
+                            </button>
+                          </div>
+                        </>
+                        )
+                      : window.location.pathname === '/signup'
+                        ? (
+                          <>
+                            <div className='d-flex justify-content-end me-sm-2'>
+                              <button
+                                id='home-btn'
+                                className='btn btn-light me-2'
+                                type='button'
+                                onClick={() => {
+                                  navigate('/home')
+                                }}
+                              >
+                                Home
+                              </button>
+                              <button
+                                id='sign-in-btn'
+                                className='btn btn-primary me-2'
+                                type='button'
+                                onClick={() => {
+                                  navigate('/login')
+                                }}
+                              >
+                                Sign In
+                              </button>
+                            </div>
+                          </>)
+                        : (
+                          <>
+                            <div className='d-flex justify-content-end me-sm-2'>
+                              <input
+                                id='search-name'
+                                className='form-control me-2'
+                                type='search'
+                                placeholder='Search by product'
+                                aria-label='Search'
+                                onChange={(event) => searchData(event)}
+                              />
 
-                      <button
-                        id='sign-in-btn'
-                        className='btn btn-primary me-2 btn-header-class'
-                        type='button'
-                        onClick={() => {
-                          navigate('/signup')
-                        }}
-                      >
-                        Sign Up
-                      </button>
+                              <button
+                                id='sign-in-btn'
+                                className='btn btn-primary me-2 btn-header-class'
+                                type='button'
+                                onClick={() => {
+                                  navigate('/signup')
+                                }}
+                              >
+                                Sign Up
+                              </button>
 
-                      <button
-                        id='sign-up-btn'
-                        className='btn btn-primary btn-header-class'
-                        type='button'
-                        onClick={() => {
-                          navigate('/login')
-                        }}
-                      >
-                        Sign In
-                      </button>
-                    </div>
+                              <button
+                                id='sign-up-btn'
+                                className='btn btn-primary btn-header-class'
+                                type='button'
+                                onClick={() => {
+                                  navigate('/login')
+                                }}
+                              >
+                                Sign In
+                              </button>
+                            </div>
+                          </>
+                          )}
                   </>
                   )
                 : (
