@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { getItems } from '../services/actions.js'
@@ -42,7 +42,19 @@ const Home = () => {
         <div className='grid-container'>
           {charactersArray.length <= 0
             ? (
-              <h1>Loading...</h1>
+              <>
+                <div className='loading-class d-flex justify-content-center align-items-center'>
+                  <div className='spinner-grow text-light'>
+                    <span className='visually-hidden'>Loading...</span>
+                  </div>
+                  <div className='spinner-grow text-light'>
+                    <span className='visually-hidden'>Loading...</span>
+                  </div>
+                  <div className='spinner-grow text-light'>
+                    <span className='visually-hidden'>Loading...</span>
+                  </div>
+                </div>
+              </>
               )
             : (
                 results.map((characters) => (

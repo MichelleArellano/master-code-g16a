@@ -61,7 +61,7 @@ main {
   filter: blur(6px);
 	content:'';
 	position: absolute;
-        top: 10vh;
+  top: 10vh;
 	bottom: 10vh;
 	left: 0;
 	right: 0;
