@@ -5,11 +5,13 @@ import { getItems } from '../services/actions.js'
 import '../styles/home.css'
 import 'styled-components'
 import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../context/AuthContext'
 
 const Home = () => {
   const [charactersArray, setcharactersArray] = useState([])
   const [search, setSearch] = useState('')
   const navigate = useNavigate()
+  const { isAuth } = useContext(AuthContext)
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -94,7 +96,7 @@ const Home = () => {
                         <button
                           className='btn btn-primary mt-sm-3'
                           onClick={() => {
-                            navigate(`/product_detail/${characters._id}`)
+                            isAuth ? navigate(`/product_detail/${characters._id}`) : navigate('/login')
                           }}
                         >
                           Buy
