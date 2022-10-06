@@ -14,7 +14,7 @@ const Header = ({ searchData }) => {
       getUserById(user.id).then((res) => {
         if (res.status === 200) {
           setUserData(res.data)
-          console.log(userData)
+          console.log('userdata', userData)
         }
       })
     }, 2000)
@@ -153,45 +153,137 @@ const Header = ({ searchData }) => {
                   )
                 : (
                   <>
-                    <div className='d-flex justify-content-between me-sm-2'>
-                      <input
-                        id='search-name'
-                        className='form-control me-2'
-                        type='search'
-                        placeholder='Search by product'
-                        aria-label='Search'
-                        onChange={(event) => searchData(event)}
-                      />
+                    {window.location.pathname.includes('/product_detail')
+                      ? (
+                        <>
+                          <div className='d-flex justify-content-between me-sm-2'>
+                            <button className='border border-primary rounded-circle me-2 btn-header-container'>
+                              <span className='d-flex justify-content-center align-items-center material-symbols-outlined btn-header-account'>
+                                person
+                              </span>
+                            </button>
+                            <div className='d-flex justify-content-center align-items-center me-2'>
+                              <strong>{userData.first_name}</strong>
+                            </div>
+                            <button
+                              id='sign-up-btn'
+                              className='btn btn-primary btn-header-class material-symbols-outlined'
+                              type='button'
+                              onClick={() => {
+                                logout()
+                                navigate('/')
+                              }}
+                            >
+                              Logout
+                            </button>
+                          </div>
+                        </>
+                        )
+                      : window.location.pathname === '/dashboard'
+                        ? (
+                          <>
+                            {user.role === 'ADMIN'
+                              ? (
+                                <>
+                                  <div className='d-flex justify-content-between me-sm-2'>
+                                    <input
+                                      id='search-name'
+                                      className='form-control me-2'
+                                      type='search'
+                                      placeholder='Search by product'
+                                      aria-label='Search'
+                                      onChange={(event) => searchData(event)}
+                                    />
 
-                      <button
-                        className='border border-primary rounded-circle me-2 btn-header-container'
-                      >
-                        <span className='d-flex justify-content-center align-items-center material-symbols-outlined btn-header-account'>
-                          person
-                        </span>
-                      </button>
+                                    <button className='border border-primary rounded-circle me-2 btn-header-container'>
+                                      <span className='d-flex justify-content-center align-items-center material-symbols-outlined btn-header-account'>
+                                        person
+                                      </span>
+                                    </button>
 
-                      <div className='d-flex justify-content-center align-items-center me-2'>
-                        <strong>{userData.first_name}</strong>
-                      </div>
+                                    <div className='d-flex justify-content-center align-items-center me-2'>
+                                      <strong>{userData.first_name}</strong>
+                                    </div>
 
-                      <button
-                        id='sign-up-btn'
-                        className='btn btn-primary btn-header-class material-symbols-outlined'
-                        type='button'
-                        onClick={() => {
-                          logout()
-                          navigate('/')
-                        }}
-                      >
-                        <div className='d-flex justify-content-between align-items-center'>
-                          <span className='material-symbols-outlined'>
-                            logout
-                          </span>
-                          Logout
-                        </div>
-                      </button>
-                    </div>
+                                    <button
+                                      id='sign-up-btn'
+                                      className='btn btn-primary btn-header-class material-symbols-outlined'
+                                      type='button'
+                                      onClick={() => {
+                                        logout()
+                                        navigate('/')
+                                      }}
+                                    >
+                                      Logout
+                                    </button>
+                                  </div>
+                                </>
+                                )
+                              : (
+                                <>
+                                  <div className='d-flex justify-content-between me-sm-2'>
+                                    <button className='border border-primary rounded-circle me-2 btn-header-container'>
+                                      <span className='d-flex justify-content-center align-items-center material-symbols-outlined btn-header-account'>
+                                        person
+                                      </span>
+                                    </button>
+
+                                    <div className='d-flex justify-content-center align-items-center me-2'>
+                                      <strong>{userData.first_name}</strong>
+                                    </div>
+
+                                    <button
+                                      id='sign-up-btn'
+                                      className='btn btn-primary btn-header-class material-symbols-outlined'
+                                      type='button'
+                                      onClick={() => {
+                                        logout()
+                                        navigate('/')
+                                      }}
+                                    >
+                                      Logout
+                                    </button>
+                                  </div>
+                                </>
+                                )}
+                          </>
+                          )
+                        : (
+                          <>
+                            <div className='d-flex justify-content-between me-sm-2'>
+                              <input
+                                id='search-name'
+                                className='form-control me-2'
+                                type='search'
+                                placeholder='Search by product'
+                                aria-label='Search'
+                                onChange={(event) => searchData(event)}
+                              />
+
+                              <button className='border border-primary rounded-circle me-2 btn-header-container'>
+                                <span className='d-flex justify-content-center align-items-center material-symbols-outlined btn-header-account'>
+                                  person
+                                </span>
+                              </button>
+
+                              <div className='d-flex justify-content-center align-items-center me-2'>
+                                <strong>{userData.first_name}</strong>
+                              </div>
+
+                              <button
+                                id='sign-up-btn'
+                                className='btn btn-primary btn-header-class material-symbols-outlined'
+                                type='button'
+                                onClick={() => {
+                                  logout()
+                                  navigate('/')
+                                }}
+                              >
+                                Logout
+                              </button>
+                            </div>
+                          </>
+                          )}
                   </>
                   )}
             </div>

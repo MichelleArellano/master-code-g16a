@@ -46,7 +46,7 @@ const ProductDetail = () => {
           </div>
           <div className='col-7 mt-sm-4 mb-sm-4 ms-sm-3 me-sm-4 card'>
             <h3 className='mb-2 mt-sm-3 font-weight-normal text-center'>
-              {infoCharacter.product_name}
+              {infoCharacter.product_name} details:
             </h3>
             <p className='p-class-ids mb-4'>{infoCharacter.description}</p>
             <p className='p-class font-weight-bold'>Sku: </p>
@@ -66,7 +66,10 @@ const ProductDetail = () => {
             <p className='p-class-ids'>{infoCharacter.updatedAt}</p>
             <div className='col-12 d-flex justify-content-end mt-sm-3 mb-sm-3 pe-sm-5'>
               <button id='btn-login' className='btn btn-success'>
-                Add
+                <div className='d-flex justify-content-between align-items-center'>
+                  <span className='material-symbols-outlined me-sm-2'>shopping_cart</span>
+                  Add
+                </div>
               </button>
             </div>
           </div>
