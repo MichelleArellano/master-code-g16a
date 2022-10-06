@@ -43,14 +43,32 @@ const DashBoard = () => {
     {
       name: 'Action',
       cell: (row) => (
-        <button
-          className='btn btn-primary'
-          onClick={() => {
-            navigate(`/character/${row._id}`)
-          }}
-        >
-          Buy
-        </button>
+        <>
+          <button
+            className='d-flex btn btn-success pt-sm-2 pe-sm-2 ps-sm-2 pb-sm-2 me-sm-2 justify-content-center align-items-center'
+            onClick={() => {
+              navigate(`/product_detail/${row._id}`)
+            }}
+          >
+            <span className='material-symbols-outlined fs-6'>edit</span>
+          </button>
+          <button
+            className='d-flex btn btn-danger pt-sm-2 pe-sm-2 ps-sm-2 pb-sm-2 me-sm-2 justify-content-center align-items-center'
+            onClick={() => {
+              navigate(`/product_detail/${row._id}`)
+            }}
+          >
+            <span className='material-symbols-outlined fs-6'>delete</span>
+          </button>
+          <button
+            className='d-flex btn btn-primary pt-sm-2 pe-sm-2 ps-sm-2 pb-sm-2 me-sm-2 justify-content-center align-items-center'
+            onClick={() => {
+              navigate(`/product_detail/${row._id}`)
+            }}
+          >
+            <span className='material-symbols-outlined fs-6'>visibility</span>
+          </button>
+        </>
       )
     }
   ]
@@ -63,7 +81,7 @@ const DashBoard = () => {
   return (
     <>
       <Header searchData={searchData} />
-      <main>
+      <main className='main-dashboard-class'>
         <div className='table-btn-class'>
           <DataTable
             columns={columns}
@@ -82,17 +100,6 @@ const DashBoard = () => {
           />
         </div>
       </main>
-      <div className='float-button'>
-        <button
-          onClick={() => navigate('/home')}
-          className='button-mark'
-          target='_blank'
-        >
-          <span className='material-icons-outlined'>
-            home
-          </span>
-        </button>
-      </div>
       <Footer />
     </>
   )

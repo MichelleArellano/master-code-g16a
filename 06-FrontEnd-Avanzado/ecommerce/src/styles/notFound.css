@@ -1,0 +1,10 @@
+.img-404-background {
+	height: 100vh;
+	border-radius: 1px; 
+}
+
+.img-404-background-container {
+	height: 100vh;
+	background-color: blueviolet;
+	background-position: center center;
+}

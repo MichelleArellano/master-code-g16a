@@ -2,3 +2,8 @@ main {
     background-color: #9fc4fb;
     height: 80vh;
   } 
+
+.main-dashboard-class {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
