@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { useNavigate, NavLink } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import '../styles/header.css'
 import { AuthContext } from '../context/AuthContext'
 
@@ -11,10 +11,17 @@ const Header = ({ searchData }) => {
       <header>
         <nav className='navbar navbar-expand-lg navbar-light bg-light'>
           <div className='container-fluid'>
-            <a className='navbar-brand' href='#'>
+            <Link className='navbar-brand' to='#'>
               <img src='../src/assets/img/logo.png' alt='logo' />
               Little Foot Print
-            </a>
+            </Link>
+            <ul class='nav'>
+              <li class='nav-item'>
+                <Link class='nav-link active' aria-current='page' to='/dashboard'>
+                  Dashboard
+                </Link>
+              </li>
+            </ul>
             <button
               className='navbar-toggler'
               type='button'
@@ -85,7 +92,8 @@ const Header = ({ searchData }) => {
                                 Sign In
                               </button>
                             </div>
-                          </>)
+                          </>
+                          )
                         : (
                           <>
                             <div className='d-flex justify-content-end me-sm-2'>

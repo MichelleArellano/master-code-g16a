@@ -2,6 +2,29 @@ import axios from 'axios'
 
 const BASE_URL = 'https://ecomerce-master.herokuapp.com/api/v1/'
 
+const token = window.localStorage.getItem('token')
+const config = {
+  headers: { Authorization: `JWT ${token}` }
+}
+
+export async function getUserById (id) {
+  console.log(`id ${id}`)
+  return await new Promise((resolve, reject) => {
+    const url = `${BASE_URL}/user/${id}`
+    // console.log(`url ${url}`)
+    axios
+      .get(url, config)
+      .then((response) => {
+        console.log(response)
+        resolve(response)
+      })
+      .catch((error) => {
+        console.log(error)
+        reject(error)
+      })
+  })
+}
+
 export async function registerUserService (data) {
   return new Promise((resolve, reject) => {
     const url = `${BASE_URL}/signup`
@@ -52,7 +75,7 @@ export async function getItemsById (id) {
   console.log(`id ${id}`)
   return await new Promise((resolve, reject) => {
     const url = `${BASE_URL}/item/${id}`
-    console.log(`url ${url}`)
+    // console.log(`url ${url}`)
     axios
       .get(url)
       .then((response) => {
