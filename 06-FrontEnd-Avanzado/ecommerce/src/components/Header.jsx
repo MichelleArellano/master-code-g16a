@@ -1,11 +1,26 @@
-import { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import '../styles/header.css'
 import { AuthContext } from '../context/AuthContext'
+import { getUserById } from '../services/actions'
 
 const Header = ({ searchData }) => {
-  const { isAuth, logout } = useContext(AuthContext)
+  const { isAuth, logout, user } = useContext(AuthContext)
   const navigate = useNavigate()
+  const [userData, setUserData] = useState({})
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      getUserById(user.id).then((res) => {
+        if (res.status === 200) {
+          setUserData(res.data)
+          console.log(userData)
+        }
+      })
+    }, 2000)
+    return () => clearTimeout(timeout)
+  }, [])
+
   return (
     <>
       <header>
@@ -15,9 +30,13 @@ const Header = ({ searchData }) => {
               <img src='../src/assets/img/logo.png' alt='logo' />
               Little Foot Print
             </Link>
-            <ul class='nav'>
-              <li class='nav-item'>
-                <Link class='nav-link active' aria-current='page' to='/dashboard'>
+            <ul className='nav'>
+              <li className='nav-item'>
+                <Link
+                  className='nav-link active'
+                  aria-current='page'
+                  to='/dashboard'
+                >
                   Dashboard
                 </Link>
               </li>
@@ -134,7 +153,7 @@ const Header = ({ searchData }) => {
                   )
                 : (
                   <>
-                    <div className='d-flex justify-content-end me-sm-2'>
+                    <div className='d-flex justify-content-between me-sm-2'>
                       <input
                         id='search-name'
                         className='form-control me-2'
@@ -144,11 +163,17 @@ const Header = ({ searchData }) => {
                         onChange={(event) => searchData(event)}
                       />
 
-                      <button className='border border-primary rounded-circle me-2 btn-header-container'>
+                      <button
+                        className='border border-primary rounded-circle me-2 btn-header-container'
+                      >
                         <span className='d-flex justify-content-center align-items-center material-symbols-outlined btn-header-account'>
                           person
                         </span>
                       </button>
+
+                      <div className='d-flex justify-content-center align-items-center me-2'>
+                        <strong>{userData.first_name}</strong>
+                      </div>
 
                       <button
                         id='sign-up-btn'
