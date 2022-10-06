@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import axios from 'axios'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { getItemsById } from '../services/actions.js'
@@ -28,14 +27,12 @@ const ProductDetail = () => {
       <Header />
       <main>
         <section className='d-flex justify-content-around'>
-          <div className='pt-sm-4 card'>
-            <h1 className='mb-3 font-weight-normal text-center'>
+          <div className='col-4 mt-sm-4 mb-sm-4 ms-sm-4 me-sm-3 card'>
+            <h1 className='mb-sm-2 mt-sm-3 font-weight-normal text-center'>
               {infoCharacter.product_name}
             </h1>
             <p className='p-class font-weight-bold'>Product id: </p>
             <p className='p-class-ids'>{infoCharacter._id}</p>
-            <p className='p-class font-weight-bold'>Sku: </p>
-            <p className='p-class-ids'>{infoCharacter.sku}</p>
             <div>
               <div className='text-center'>
                 <img
@@ -47,11 +44,13 @@ const ProductDetail = () => {
               </div>
             </div>
           </div>
-          <div className='pt-sm-4 card'>
-            <h3 className='mb-3 font-weight-normal text-center'>
-              Product details:
+          <div className='col-7 mt-sm-4 mb-sm-4 ms-sm-3 me-sm-4 card'>
+            <h3 className='mb-2 mt-sm-3 font-weight-normal text-center'>
+              {infoCharacter.product_name}
             </h3>
             <p className='p-class-ids mb-4'>{infoCharacter.description}</p>
+            <p className='p-class font-weight-bold'>Sku: </p>
+            <p className='p-class-ids'>{infoCharacter.sku}</p>
             <p className='p-class font-weight-bold'>Price: </p>
             <p className='p-class font-weight-bold'>$ {infoCharacter.price}</p>
             <p className='p-class'>Brand: </p>
