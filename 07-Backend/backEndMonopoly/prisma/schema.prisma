@@ -1,0 +1,106 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model bancos {
+  ID_banco Int        @id
+  partidas partidas[]
+}
+
+model cartas {
+  ID_carta          Int      @id
+  Cartas_ID_tablero Int
+  Fortuna           Boolean
+  Dinero            Float?
+  Descripcion       String   @db.VarChar(160)
+  tableros          tableros @relation(fields: [Cartas_ID_tablero], references: [ID_tablero], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model construcciones {
+  ID_construcciones          Int                          @id
+  Es_casa_                   Boolean                      @map("Es casa?")
+  construcciones_propiedades construcciones_propiedades[]
+}
+
+model construcciones_propiedades {
+  construcciones_ID_construcciones Int
+  propiedades_ID_propiedad         Int
+  construcciones                   construcciones @relation(fields: [construcciones_ID_construcciones], references: [ID_construcciones], onDelete: NoAction, onUpdate: NoAction)
+  propiedades                      propiedades    @relation(fields: [propiedades_ID_propiedad], references: [ID_propiedad], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([construcciones_ID_construcciones, propiedades_ID_propiedad])
+}
+
+model fichas {
+  ID_ficha  Int         @id
+  Forma     String      @db.VarChar(15)
+  jugadores jugadores[]
+}
+
+model jugadores {
+  ID_jugador         Int        @id
+  Usuario_nombre     String     @db.VarChar(30)
+  Nombre             String     @db.VarChar(30)
+  Dinero             Int        @db.SmallInt
+  Verificar_c_rcel   Boolean    @map("Verificar cárcel")
+  Bancarrota         Boolean
+  Jugadores_ID_ficha Int
+  fichas             fichas     @relation(fields: [Jugadores_ID_ficha], references: [ID_ficha], onDelete: NoAction, onUpdate: NoAction)
+  tableros           tableros[]
+}
+
+model partidas {
+  ID_partida          Int      @id
+  Partidas_ID_tablero Int
+  Partidas_ID_banco   Int
+  Partidas_ID_turno   Int
+  Partidas_ID_jugador Int
+  bancos              bancos   @relation(fields: [Partidas_ID_banco], references: [ID_banco], onDelete: NoAction, onUpdate: NoAction)
+  tableros            tableros @relation(fields: [Partidas_ID_tablero], references: [ID_tablero], onDelete: NoAction, onUpdate: NoAction)
+  turnos              turnos   @relation(fields: [Partidas_ID_turno], references: [ID_turno], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model propiedades {
+  ID_propiedad               Int                          @id
+  Propiedades_ID_tablero     Int
+  Nombre                     String                       @db.VarChar
+  Ciudad                     String?                      @db.VarChar
+  Ubicacion                  Int
+  Precio                     Int
+  Renta                      Int?
+  Color                      String?                      @db.VarChar(15)
+  Hipoteca                   Int
+  Precio_casa                Int?                         @map("Precio casa")
+  Precio_hotel               Int?                         @map("Precio hotel")
+  Propiedades_ID_jugador     Int?
+  tableros                   tableros                     @relation(fields: [Propiedades_ID_tablero], references: [ID_tablero], onDelete: NoAction, onUpdate: NoAction)
+  construcciones_propiedades construcciones_propiedades[]
+}
+
+model tableros {
+  ID_tablero            Int           @id
+  Tableros_ID_jugadores Int
+  jugadores             jugadores     @relation(fields: [Tableros_ID_jugadores], references: [ID_jugador], onDelete: NoAction, onUpdate: NoAction)
+  cartas                cartas[]
+  partidas              partidas[]
+  propiedades           propiedades[]
+}
+
+model turnos {
+  ID_turno Int        @id
+  partidas partidas[]
+}
+
+model usuarios {
+  Nombre           String @id @db.VarChar(30)
+  Nickname         String @db.VarChar(15)
+  Apellido_paterno String @map("Apellido paterno") @db.VarChar(30)
+  Apellido_materno String @map("Apellido materno") @db.VarChar(30)
+  Contrasena       String @db.VarChar(10)
+  Edad             Int
+}
